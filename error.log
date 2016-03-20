@@ -1,0 +1,280 @@
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       time:         2012-07-08 13:37:58                                                               | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       java:         C:\Program Files (x86)\Java\jdk1.6.0_30\jre                                       | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       java version: 1.6.0_30-b12                                                                      | main
+--------------------------------------------------------------------------------
+zo, 08. juli 2012, 13:37 -> INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       time:         2012-09-11 10:23:52                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 10:23 -> 2012-09-11 10:23:52 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 12:08:02                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:08 -> Tue Sep 11 12:08:02 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 12:27:05                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:27 -> Tue Sep 11 12:27:05 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 12:34:01                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:34 -> Tue Sep 11 12:34:01 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 12:35:46                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 12:35 -> Tue Sep 11 12:35:46 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 13:08:01                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:01 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       time:         2012-09-11 13:08:57                                                               | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 11. september 2012, 13:08 -> Tue Sep 11 13:08:57 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       time:         2012-09-12 16:49:51                                                               | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+wo, 12. september 2012, 16:49 -> Wed Sep 12 16:49:51 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO aultLogRecordHandler Log-file: error.log                                                                                 | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter   ********************************************************************************                    | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter   Starting application: scrum.mda.ScrumModelApplication                                               | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       DEVELOPMENT MODE                                                                                | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       time:         2012-09-18 08:27:22                                                               | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       system user:  erik                                                                              | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       user home:    C:\Users\erik                                                                     | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       work-path:    C:\ScrumFrog\kunagiNB                                                             | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       temp-path:    C:\Users\erik\AppData\Local\Temp                                                  | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       locale:       nl_NL                                                                             | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       encoding:     Cp1252                                                                            | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       java:         C:\Program Files\Java\jdk1.7.0\jre                                                | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       java version: 1.7.0-b147                                                                        | main
+--------------------------------------------------------------------------------
+di, 18. september 2012, 08:27 -> Tue Sep 18 08:27:22 CEST 2012 INFO ApplicationStarter       arguments:    {}                                                                                | main
