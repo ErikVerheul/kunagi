@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GProjectEventDao
             extends ilarkesto.persistence.ADao<ProjectEvent> {
 
+    @Override
     public final String getEntityName() {
         return ProjectEvent.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return ProjectEvent.class;
     }
 
     public Set<ProjectEvent> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<ProjectEvent>() {
+            @Override
             public boolean test(ProjectEvent e) {
                 return Auth.isVisible(e, user);
             }
@@ -73,6 +76,7 @@ public abstract class GProjectEventDao
 
     private final Cache<scrum.server.project.Project,Set<ProjectEvent>> projectEventsByProjectCache = new Cache<scrum.server.project.Project,Set<ProjectEvent>>(
             new Cache.Factory<scrum.server.project.Project,Set<ProjectEvent>>() {
+                @Override
                 public Set<ProjectEvent> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -101,6 +105,7 @@ public abstract class GProjectEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectEvent e) {
             return e.isProject(value);
         }
@@ -113,6 +118,7 @@ public abstract class GProjectEventDao
 
     private final Cache<java.lang.String,Set<ProjectEvent>> projectEventsByLabelCache = new Cache<java.lang.String,Set<ProjectEvent>>(
             new Cache.Factory<java.lang.String,Set<ProjectEvent>>() {
+                @Override
                 public Set<ProjectEvent> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -141,6 +147,7 @@ public abstract class GProjectEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectEvent e) {
             return e.isLabel(value);
         }
@@ -153,6 +160,7 @@ public abstract class GProjectEventDao
 
     private final Cache<ilarkesto.persistence.AEntity,Set<ProjectEvent>> projectEventsBySubjectCache = new Cache<ilarkesto.persistence.AEntity,Set<ProjectEvent>>(
             new Cache.Factory<ilarkesto.persistence.AEntity,Set<ProjectEvent>>() {
+                @Override
                 public Set<ProjectEvent> create(ilarkesto.persistence.AEntity subject) {
                     return getEntities(new IsSubject(subject));
                 }
@@ -181,6 +189,7 @@ public abstract class GProjectEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectEvent e) {
             return e.isSubject(value);
         }
@@ -193,6 +202,7 @@ public abstract class GProjectEventDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<ProjectEvent>> projectEventsByDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<ProjectEvent>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<ProjectEvent>>() {
+                @Override
                 public Set<ProjectEvent> create(ilarkesto.core.time.DateAndTime dateAndTime) {
                     return getEntities(new IsDateAndTime(dateAndTime));
                 }
@@ -221,6 +231,7 @@ public abstract class GProjectEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectEvent e) {
             return e.isDateAndTime(value);
         }

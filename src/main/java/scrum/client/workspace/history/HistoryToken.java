@@ -26,11 +26,11 @@ import java.util.Map;
 
 public class HistoryToken {
 
-	private static Log log = Log.get(HistoryToken.class);
+	private static final Log log = Log.get(HistoryToken.class);
 
 	public static final String START_PAGE = "Dashboard";
 
-	private HistoryTokenObserver observer;
+	private final HistoryTokenObserver observer;
 
 	private String projectId;
 	private String page;

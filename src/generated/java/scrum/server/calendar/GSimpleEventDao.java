@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSimpleEventDao
             extends ilarkesto.persistence.ADao<SimpleEvent> {
 
+    @Override
     public final String getEntityName() {
         return SimpleEvent.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return SimpleEvent.class;
     }
 
     public Set<SimpleEvent> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<SimpleEvent>() {
+            @Override
             public boolean test(SimpleEvent e) {
                 return Auth.isVisible(e, user);
             }
@@ -83,6 +86,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<scrum.server.project.Project,Set<SimpleEvent>> simpleEventsByProjectCache = new Cache<scrum.server.project.Project,Set<SimpleEvent>>(
             new Cache.Factory<scrum.server.project.Project,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -111,6 +115,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isProject(value);
         }
@@ -123,6 +128,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<java.lang.String,Set<SimpleEvent>> simpleEventsByLabelCache = new Cache<java.lang.String,Set<SimpleEvent>>(
             new Cache.Factory<java.lang.String,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -151,6 +157,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isLabel(value);
         }
@@ -163,6 +170,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<Integer,Set<SimpleEvent>> simpleEventsByNumberCache = new Cache<Integer,Set<SimpleEvent>>(
             new Cache.Factory<Integer,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -191,6 +199,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isNumber(value);
         }
@@ -203,6 +212,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<ilarkesto.core.time.Date,Set<SimpleEvent>> simpleEventsByDateCache = new Cache<ilarkesto.core.time.Date,Set<SimpleEvent>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(ilarkesto.core.time.Date date) {
                     return getEntities(new IsDate(date));
                 }
@@ -231,6 +241,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isDate(value);
         }
@@ -243,6 +254,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<ilarkesto.core.time.Time,Set<SimpleEvent>> simpleEventsByTimeCache = new Cache<ilarkesto.core.time.Time,Set<SimpleEvent>>(
             new Cache.Factory<ilarkesto.core.time.Time,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(ilarkesto.core.time.Time time) {
                     return getEntities(new IsTime(time));
                 }
@@ -271,6 +283,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isTime(value);
         }
@@ -283,6 +296,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<java.lang.String,Set<SimpleEvent>> simpleEventsByLocationCache = new Cache<java.lang.String,Set<SimpleEvent>>(
             new Cache.Factory<java.lang.String,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(java.lang.String location) {
                     return getEntities(new IsLocation(location));
                 }
@@ -311,6 +325,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isLocation(value);
         }
@@ -323,6 +338,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<java.lang.Integer,Set<SimpleEvent>> simpleEventsByDurationCache = new Cache<java.lang.Integer,Set<SimpleEvent>>(
             new Cache.Factory<java.lang.Integer,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(java.lang.Integer duration) {
                     return getEntities(new IsDuration(duration));
                 }
@@ -351,6 +367,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isDuration(value);
         }
@@ -363,6 +380,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<java.lang.String,Set<SimpleEvent>> simpleEventsByAgendaCache = new Cache<java.lang.String,Set<SimpleEvent>>(
             new Cache.Factory<java.lang.String,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(java.lang.String agenda) {
                     return getEntities(new IsAgenda(agenda));
                 }
@@ -391,6 +409,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isAgenda(value);
         }
@@ -403,6 +422,7 @@ public abstract class GSimpleEventDao
 
     private final Cache<java.lang.String,Set<SimpleEvent>> simpleEventsByNoteCache = new Cache<java.lang.String,Set<SimpleEvent>>(
             new Cache.Factory<java.lang.String,Set<SimpleEvent>>() {
+                @Override
                 public Set<SimpleEvent> create(java.lang.String note) {
                     return getEntities(new IsNote(note));
                 }
@@ -431,6 +451,7 @@ public abstract class GSimpleEventDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SimpleEvent e) {
             return e.isNote(value);
         }

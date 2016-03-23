@@ -28,10 +28,12 @@ public abstract class GSubscription
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.pr.SubscriptionDao getDao() {
         return subscriptionDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -42,6 +44,7 @@ public abstract class GSubscription
         properties.put("subscribersEmails", this.subscribersEmails);
     }
 
+    @Override
     public int compareTo(Subscription other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -195,6 +198,7 @@ public abstract class GSubscription
         setSubscribersEmails((java.util.Set<java.lang.String>) value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -205,6 +209,7 @@ public abstract class GSubscription
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadSubjectReference(entityId);
@@ -213,6 +218,7 @@ public abstract class GSubscription
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isSubjectSet()) {

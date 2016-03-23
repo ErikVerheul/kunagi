@@ -144,11 +144,11 @@ public class ScrumEntityfilePreparator implements EntityfilePreparator {
 	private void save(Document doc, File file) throws IOException {
 		LOG.info("Saving prepared entity file:", file);
 		backup(file);
-		OutputStream out = new BufferedOutputStream(new FileOutputStream(file));
-		XMLOutputter outputter = new XMLOutputter();
-		outputter.getFormat().setEncoding(IO.UTF_8);
-		outputter.output(doc, out);
-		out.close();
+            try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
+                XMLOutputter outputter = new XMLOutputter();
+                outputter.getFormat().setEncoding(IO.UTF_8);
+                outputter.output(doc, out);
+            }
 	}
 
 	private void backup(File src) {

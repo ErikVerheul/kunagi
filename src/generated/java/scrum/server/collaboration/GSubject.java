@@ -28,10 +28,12 @@ public abstract class GSubject
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.collaboration.SubjectDao getDao() {
         return subjectDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -44,6 +46,7 @@ public abstract class GSubject
         properties.put("number", this.number);
     }
 
+    @Override
     public int compareTo(Subject other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -57,6 +60,7 @@ public abstract class GSubject
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -218,6 +222,7 @@ public abstract class GSubject
         setNumber((Integer)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -230,6 +235,7 @@ public abstract class GSubject
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -237,6 +243,7 @@ public abstract class GSubject
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

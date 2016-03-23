@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GTaskDao
             extends ilarkesto.persistence.ADao<Task> {
 
+    @Override
     public final String getEntityName() {
         return Task.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Task.class;
     }
 
     public Set<Task> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Task>() {
+            @Override
             public boolean test(Task e) {
                 return Auth.isVisible(e, user);
             }
@@ -83,6 +86,7 @@ public abstract class GTaskDao
 
     private final Cache<scrum.server.project.Requirement,Set<Task>> tasksByRequirementCache = new Cache<scrum.server.project.Requirement,Set<Task>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<Task>>() {
+                @Override
                 public Set<Task> create(scrum.server.project.Requirement requirement) {
                     return getEntities(new IsRequirement(requirement));
                 }
@@ -111,6 +115,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isRequirement(value);
         }
@@ -123,6 +128,7 @@ public abstract class GTaskDao
 
     private final Cache<Integer,Set<Task>> tasksByNumberCache = new Cache<Integer,Set<Task>>(
             new Cache.Factory<Integer,Set<Task>>() {
+                @Override
                 public Set<Task> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -151,6 +157,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isNumber(value);
         }
@@ -163,6 +170,7 @@ public abstract class GTaskDao
 
     private final Cache<java.lang.String,Set<Task>> tasksByLabelCache = new Cache<java.lang.String,Set<Task>>(
             new Cache.Factory<java.lang.String,Set<Task>>() {
+                @Override
                 public Set<Task> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -191,6 +199,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isLabel(value);
         }
@@ -203,6 +212,7 @@ public abstract class GTaskDao
 
     private final Cache<java.lang.String,Set<Task>> tasksByDescriptionCache = new Cache<java.lang.String,Set<Task>>(
             new Cache.Factory<java.lang.String,Set<Task>>() {
+                @Override
                 public Set<Task> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -231,6 +241,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isDescription(value);
         }
@@ -243,6 +254,7 @@ public abstract class GTaskDao
 
     private final Cache<Integer,Set<Task>> tasksByRemainingWorkCache = new Cache<Integer,Set<Task>>(
             new Cache.Factory<Integer,Set<Task>>() {
+                @Override
                 public Set<Task> create(Integer remainingWork) {
                     return getEntities(new IsRemainingWork(remainingWork));
                 }
@@ -271,6 +283,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isRemainingWork(value);
         }
@@ -283,6 +296,7 @@ public abstract class GTaskDao
 
     private final Cache<Integer,Set<Task>> tasksByBurnedWorkCache = new Cache<Integer,Set<Task>>(
             new Cache.Factory<Integer,Set<Task>>() {
+                @Override
                 public Set<Task> create(Integer burnedWork) {
                     return getEntities(new IsBurnedWork(burnedWork));
                 }
@@ -311,6 +325,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isBurnedWork(value);
         }
@@ -323,6 +338,7 @@ public abstract class GTaskDao
 
     private final Cache<scrum.server.admin.User,Set<Task>> tasksByOwnerCache = new Cache<scrum.server.admin.User,Set<Task>>(
             new Cache.Factory<scrum.server.admin.User,Set<Task>>() {
+                @Override
                 public Set<Task> create(scrum.server.admin.User owner) {
                     return getEntities(new IsOwner(owner));
                 }
@@ -351,6 +367,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isOwner(value);
         }
@@ -363,6 +380,7 @@ public abstract class GTaskDao
 
     private final Cache<scrum.server.impediments.Impediment,Set<Task>> tasksByImpedimentCache = new Cache<scrum.server.impediments.Impediment,Set<Task>>(
             new Cache.Factory<scrum.server.impediments.Impediment,Set<Task>>() {
+                @Override
                 public Set<Task> create(scrum.server.impediments.Impediment impediment) {
                     return getEntities(new IsImpediment(impediment));
                 }
@@ -391,6 +409,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isImpediment(value);
         }
@@ -403,6 +422,7 @@ public abstract class GTaskDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<Task>> tasksByClosedInPastSprintCache = new Cache<scrum.server.sprint.Sprint,Set<Task>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<Task>>() {
+                @Override
                 public Set<Task> create(scrum.server.sprint.Sprint closedInPastSprint) {
                     return getEntities(new IsClosedInPastSprint(closedInPastSprint));
                 }
@@ -431,6 +451,7 @@ public abstract class GTaskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Task e) {
             return e.isClosedInPastSprint(value);
         }

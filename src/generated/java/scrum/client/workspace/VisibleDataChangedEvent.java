@@ -7,6 +7,7 @@ public class VisibleDataChangedEvent extends ilarkesto.core.event.AEvent {
     public  VisibleDataChangedEvent() {
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof VisibleDataChangedHandler) {
             log.debug("    " + handler.getClass().getName() + ".onVisibleDataChanged(event)");

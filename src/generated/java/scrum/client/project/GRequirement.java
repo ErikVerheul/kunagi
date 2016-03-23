@@ -21,6 +21,7 @@ import ilarkesto.gwt.client.*;
 public abstract class GRequirement
             extends scrum.client.common.AScrumGwtEntity {
 
+    @Override
     protected scrum.client.Dao getDao() {
         return scrum.client.Dao.get();
     }
@@ -235,6 +236,7 @@ public abstract class GRequirement
 
     private transient LabelModel labelModel;
 
+    @Override
     public LabelModel getLabelModel() {
         if (labelModel == null) labelModel = createLabelModel();
         return labelModel;

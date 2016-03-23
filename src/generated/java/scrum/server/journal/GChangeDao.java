@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GChangeDao
             extends ilarkesto.persistence.ADao<Change> {
 
+    @Override
     public final String getEntityName() {
         return Change.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Change.class;
     }
 
     public Set<Change> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Change>() {
+            @Override
             public boolean test(Change e) {
                 return Auth.isVisible(e, user);
             }
@@ -79,6 +82,7 @@ public abstract class GChangeDao
 
     private final Cache<ilarkesto.persistence.AEntity,Set<Change>> changesByParentCache = new Cache<ilarkesto.persistence.AEntity,Set<Change>>(
             new Cache.Factory<ilarkesto.persistence.AEntity,Set<Change>>() {
+                @Override
                 public Set<Change> create(ilarkesto.persistence.AEntity parent) {
                     return getEntities(new IsParent(parent));
                 }
@@ -107,6 +111,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isParent(value);
         }
@@ -119,6 +124,7 @@ public abstract class GChangeDao
 
     private final Cache<scrum.server.admin.User,Set<Change>> changesByUserCache = new Cache<scrum.server.admin.User,Set<Change>>(
             new Cache.Factory<scrum.server.admin.User,Set<Change>>() {
+                @Override
                 public Set<Change> create(scrum.server.admin.User user) {
                     return getEntities(new IsUser(user));
                 }
@@ -147,6 +153,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isUser(value);
         }
@@ -159,6 +166,7 @@ public abstract class GChangeDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<Change>> changesByDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<Change>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<Change>>() {
+                @Override
                 public Set<Change> create(ilarkesto.core.time.DateAndTime dateAndTime) {
                     return getEntities(new IsDateAndTime(dateAndTime));
                 }
@@ -187,6 +195,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isDateAndTime(value);
         }
@@ -199,6 +208,7 @@ public abstract class GChangeDao
 
     private final Cache<java.lang.String,Set<Change>> changesByKeyCache = new Cache<java.lang.String,Set<Change>>(
             new Cache.Factory<java.lang.String,Set<Change>>() {
+                @Override
                 public Set<Change> create(java.lang.String key) {
                     return getEntities(new IsKey(key));
                 }
@@ -227,6 +237,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isKey(value);
         }
@@ -239,6 +250,7 @@ public abstract class GChangeDao
 
     private final Cache<java.lang.String,Set<Change>> changesByOldValueCache = new Cache<java.lang.String,Set<Change>>(
             new Cache.Factory<java.lang.String,Set<Change>>() {
+                @Override
                 public Set<Change> create(java.lang.String oldValue) {
                     return getEntities(new IsOldValue(oldValue));
                 }
@@ -267,6 +279,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isOldValue(value);
         }
@@ -279,6 +292,7 @@ public abstract class GChangeDao
 
     private final Cache<java.lang.String,Set<Change>> changesByNewValueCache = new Cache<java.lang.String,Set<Change>>(
             new Cache.Factory<java.lang.String,Set<Change>>() {
+                @Override
                 public Set<Change> create(java.lang.String newValue) {
                     return getEntities(new IsNewValue(newValue));
                 }
@@ -307,6 +321,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isNewValue(value);
         }
@@ -319,6 +334,7 @@ public abstract class GChangeDao
 
     private final Cache<java.lang.String,Set<Change>> changesByCommentCache = new Cache<java.lang.String,Set<Change>>(
             new Cache.Factory<java.lang.String,Set<Change>>() {
+                @Override
                 public Set<Change> create(java.lang.String comment) {
                     return getEntities(new IsComment(comment));
                 }
@@ -347,6 +363,7 @@ public abstract class GChangeDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Change e) {
             return e.isComment(value);
         }

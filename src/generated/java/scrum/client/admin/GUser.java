@@ -21,6 +21,7 @@ import ilarkesto.gwt.client.*;
 public abstract class GUser
             extends scrum.client.common.AScrumGwtEntity {
 
+    @Override
     protected scrum.client.Dao getDao() {
         return scrum.client.Dao.get();
     }
@@ -1587,6 +1588,7 @@ public abstract class GUser
         return getDao().getSprintsByProductOwner((User)this);
     }
 
+    @Override
     public final java.util.List<scrum.client.collaboration.Emoticon> getEmoticons() {
         return getDao().getEmoticonsByOwner((User)this);
     }
@@ -1607,6 +1609,7 @@ public abstract class GUser
         return getDao().getChangesByUser((User)this);
     }
 
+    @Override
     public final java.util.List<scrum.client.collaboration.Comment> getComments() {
         return getDao().getCommentsByAuthor((User)this);
     }

@@ -28,10 +28,12 @@ public abstract class GTask
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.sprint.TaskDao getDao() {
         return taskDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -49,6 +51,7 @@ public abstract class GTask
         properties.put("closedInPastSprintId", this.closedInPastSprintId);
     }
 
+    @Override
     public int compareTo(Task other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -66,6 +69,7 @@ public abstract class GTask
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -443,6 +447,7 @@ public abstract class GTask
         setClosedInPastSprint(value == null ? null : (scrum.server.sprint.Sprint)sprintDao.getById((String)value));
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -460,6 +465,7 @@ public abstract class GTask
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadRequirementReference(entityId);
@@ -470,6 +476,7 @@ public abstract class GTask
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isRequirementSet()) {

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GEmoticonDao
             extends ilarkesto.persistence.ADao<Emoticon> {
 
+    @Override
     public final String getEntityName() {
         return Emoticon.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Emoticon.class;
     }
 
     public Set<Emoticon> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Emoticon>() {
+            @Override
             public boolean test(Emoticon e) {
                 return Auth.isVisible(e, user);
             }
@@ -71,6 +74,7 @@ public abstract class GEmoticonDao
 
     private final Cache<ilarkesto.persistence.AEntity,Set<Emoticon>> emoticonsByParentCache = new Cache<ilarkesto.persistence.AEntity,Set<Emoticon>>(
             new Cache.Factory<ilarkesto.persistence.AEntity,Set<Emoticon>>() {
+                @Override
                 public Set<Emoticon> create(ilarkesto.persistence.AEntity parent) {
                     return getEntities(new IsParent(parent));
                 }
@@ -99,6 +103,7 @@ public abstract class GEmoticonDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Emoticon e) {
             return e.isParent(value);
         }
@@ -111,6 +116,7 @@ public abstract class GEmoticonDao
 
     private final Cache<scrum.server.admin.User,Set<Emoticon>> emoticonsByOwnerCache = new Cache<scrum.server.admin.User,Set<Emoticon>>(
             new Cache.Factory<scrum.server.admin.User,Set<Emoticon>>() {
+                @Override
                 public Set<Emoticon> create(scrum.server.admin.User owner) {
                     return getEntities(new IsOwner(owner));
                 }
@@ -139,6 +145,7 @@ public abstract class GEmoticonDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Emoticon e) {
             return e.isOwner(value);
         }
@@ -151,6 +158,7 @@ public abstract class GEmoticonDao
 
     private final Cache<java.lang.String,Set<Emoticon>> emoticonsByEmotionCache = new Cache<java.lang.String,Set<Emoticon>>(
             new Cache.Factory<java.lang.String,Set<Emoticon>>() {
+                @Override
                 public Set<Emoticon> create(java.lang.String emotion) {
                     return getEntities(new IsEmotion(emotion));
                 }
@@ -179,6 +187,7 @@ public abstract class GEmoticonDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Emoticon e) {
             return e.isEmotion(value);
         }

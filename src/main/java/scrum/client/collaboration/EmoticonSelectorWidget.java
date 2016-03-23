@@ -92,6 +92,7 @@ public class EmoticonSelectorWidget extends AScrumWidget {
 			this.emotion = emotion;
 		}
 
+                @Override
 		public void onClick(ClickEvent event) {
 			entity.setCurrentUserEmoticon(emotion);
 			new VisibleDataChangedEvent().fireInCurrentScope();

@@ -28,10 +28,12 @@ public abstract class GRelease
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.release.ReleaseDao getDao() {
         return releaseDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -52,6 +54,7 @@ public abstract class GRelease
         properties.put("scriptOutput", this.scriptOutput);
     }
 
+    @Override
     public int compareTo(Release other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -81,6 +84,7 @@ public abstract class GRelease
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -590,6 +594,7 @@ public abstract class GRelease
         setScriptOutput((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -610,6 +615,7 @@ public abstract class GRelease
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -620,6 +626,7 @@ public abstract class GRelease
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

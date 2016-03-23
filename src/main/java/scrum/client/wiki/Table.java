@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Table extends AWikiElement {
 
-	private List<TableRow> rows = new ArrayList<TableRow>();
+	private final List<TableRow> rows = new ArrayList<TableRow>();
 	private TableRow currentRow;
 
 	@Override

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GReleaseDao
             extends ilarkesto.persistence.ADao<Release> {
 
+    @Override
     public final String getEntityName() {
         return Release.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Release.class;
     }
 
     public Set<Release> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Release>() {
+            @Override
             public boolean test(Release e) {
                 return Auth.isVisible(e, user);
             }
@@ -87,6 +90,7 @@ public abstract class GReleaseDao
 
     private final Cache<scrum.server.project.Project,Set<Release>> releasesByProjectCache = new Cache<scrum.server.project.Project,Set<Release>>(
             new Cache.Factory<scrum.server.project.Project,Set<Release>>() {
+                @Override
                 public Set<Release> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -115,6 +119,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isProject(value);
         }
@@ -127,6 +132,7 @@ public abstract class GReleaseDao
 
     private final Cache<scrum.server.release.Release,Set<Release>> releasesByParentReleaseCache = new Cache<scrum.server.release.Release,Set<Release>>(
             new Cache.Factory<scrum.server.release.Release,Set<Release>>() {
+                @Override
                 public Set<Release> create(scrum.server.release.Release parentRelease) {
                     return getEntities(new IsParentRelease(parentRelease));
                 }
@@ -155,6 +161,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isParentRelease(value);
         }
@@ -167,6 +174,7 @@ public abstract class GReleaseDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<Release>> releasesBySprintCache = new Cache<scrum.server.sprint.Sprint,Set<Release>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<Release>>() {
+                @Override
                 public Set<Release> create(scrum.server.sprint.Sprint sprint) {
                     return getEntities(new ContainsSprint(sprint));
                 }
@@ -195,6 +203,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.containsSprint(value);
         }
@@ -207,6 +216,7 @@ public abstract class GReleaseDao
 
     private final Cache<Integer,Set<Release>> releasesByNumberCache = new Cache<Integer,Set<Release>>(
             new Cache.Factory<Integer,Set<Release>>() {
+                @Override
                 public Set<Release> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -235,6 +245,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isNumber(value);
         }
@@ -247,6 +258,7 @@ public abstract class GReleaseDao
 
     private final Cache<java.lang.String,Set<Release>> releasesByLabelCache = new Cache<java.lang.String,Set<Release>>(
             new Cache.Factory<java.lang.String,Set<Release>>() {
+                @Override
                 public Set<Release> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -275,6 +287,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isLabel(value);
         }
@@ -287,6 +300,7 @@ public abstract class GReleaseDao
 
     private final Cache<java.lang.String,Set<Release>> releasesByNoteCache = new Cache<java.lang.String,Set<Release>>(
             new Cache.Factory<java.lang.String,Set<Release>>() {
+                @Override
                 public Set<Release> create(java.lang.String note) {
                     return getEntities(new IsNote(note));
                 }
@@ -315,6 +329,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isNote(value);
         }
@@ -327,6 +342,7 @@ public abstract class GReleaseDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Release>> releasesByReleaseDateCache = new Cache<ilarkesto.core.time.Date,Set<Release>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Release>>() {
+                @Override
                 public Set<Release> create(ilarkesto.core.time.Date releaseDate) {
                     return getEntities(new IsReleaseDate(releaseDate));
                 }
@@ -355,6 +371,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isReleaseDate(value);
         }
@@ -367,6 +384,7 @@ public abstract class GReleaseDao
 
     private final Cache<Boolean,Set<Release>> releasesByReleasedCache = new Cache<Boolean,Set<Release>>(
             new Cache.Factory<Boolean,Set<Release>>() {
+                @Override
                 public Set<Release> create(Boolean released) {
                     return getEntities(new IsReleased(released));
                 }
@@ -384,6 +402,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return value == e.isReleased();
         }
@@ -396,6 +415,7 @@ public abstract class GReleaseDao
 
     private final Cache<java.lang.String,Set<Release>> releasesByReleaseNotesCache = new Cache<java.lang.String,Set<Release>>(
             new Cache.Factory<java.lang.String,Set<Release>>() {
+                @Override
                 public Set<Release> create(java.lang.String releaseNotes) {
                     return getEntities(new IsReleaseNotes(releaseNotes));
                 }
@@ -424,6 +444,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isReleaseNotes(value);
         }
@@ -436,6 +457,7 @@ public abstract class GReleaseDao
 
     private final Cache<java.lang.String,Set<Release>> releasesByScmTagCache = new Cache<java.lang.String,Set<Release>>(
             new Cache.Factory<java.lang.String,Set<Release>>() {
+                @Override
                 public Set<Release> create(java.lang.String scmTag) {
                     return getEntities(new IsScmTag(scmTag));
                 }
@@ -464,6 +486,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isScmTag(value);
         }
@@ -476,6 +499,7 @@ public abstract class GReleaseDao
 
     private final Cache<Boolean,Set<Release>> releasesByScriptRunningCache = new Cache<Boolean,Set<Release>>(
             new Cache.Factory<Boolean,Set<Release>>() {
+                @Override
                 public Set<Release> create(Boolean scriptRunning) {
                     return getEntities(new IsScriptRunning(scriptRunning));
                 }
@@ -493,6 +517,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return value == e.isScriptRunning();
         }
@@ -505,6 +530,7 @@ public abstract class GReleaseDao
 
     private final Cache<java.lang.String,Set<Release>> releasesByScriptOutputCache = new Cache<java.lang.String,Set<Release>>(
             new Cache.Factory<java.lang.String,Set<Release>>() {
+                @Override
                 public Set<Release> create(java.lang.String scriptOutput) {
                     return getEntities(new IsScriptOutput(scriptOutput));
                 }
@@ -533,6 +559,7 @@ public abstract class GReleaseDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Release e) {
             return e.isScriptOutput(value);
         }

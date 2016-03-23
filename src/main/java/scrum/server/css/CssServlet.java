@@ -49,7 +49,7 @@ public class CssServlet extends AKunagiServlet {
 			try {
 				type = (Class<? extends CssBuilder>) loader.loadClass(ScreenCssBuilder.class.getName());
 				return type.newInstance();
-			} catch (Throwable ex) {
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
 				LOG.fatal(ex);
 				throw new RuntimeException(ex);
 			}

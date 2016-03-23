@@ -28,10 +28,12 @@ public abstract class GSimpleEvent
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.calendar.SimpleEventDao getDao() {
         return simpleEventDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -49,6 +51,7 @@ public abstract class GSimpleEvent
         properties.put("note", this.note);
     }
 
+    @Override
     public int compareTo(SimpleEvent other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -62,6 +65,7 @@ public abstract class GSimpleEvent
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -404,6 +408,7 @@ public abstract class GSimpleEvent
         setNote((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -421,6 +426,7 @@ public abstract class GSimpleEvent
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -428,6 +434,7 @@ public abstract class GSimpleEvent
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

@@ -144,22 +144,20 @@ public class WhiteboardWidget extends AScrumWidget implements TaskBlockContainer
 		// grid.getColumnFormatter().setWidth(2, "1*");
 
 		int row = 1;
-		for (int i = 0; i < requirements.size(); i++) {
-			Requirement requirement = requirements.get(i);
-
-			grid.setWidget(row, 0, getRequirementList(requirement));
-			grid.getCellFormatter().getElement(row, 0).setAttribute("colspan", "3");
-			row++;
-
-			updateTaskLists(requirement);
-
-			// grid.setWidget(row, 0, new Label(requirement.getLabel()));
-			setWidget(row, 0, openTasks.get(requirement), null, "WhiteboardWidget-open");
-			setWidget(row, 1, ownedTasks.get(requirement), null, "WhiteboardWidget-owned");
-			setWidget(row, 2, closedTasks.get(requirement), null, "WhiteboardWidget-done");
-
-			row++;
-		}
+            for (Requirement requirement : requirements) {
+                grid.setWidget(row, 0, getRequirementList(requirement));
+                grid.getCellFormatter().getElement(row, 0).setAttribute("colspan", "3");
+                row++;
+                
+                updateTaskLists(requirement);
+                
+                // grid.setWidget(row, 0, new Label(requirement.getLabel()));
+                setWidget(row, 0, openTasks.get(requirement), null, "WhiteboardWidget-open");
+                setWidget(row, 1, ownedTasks.get(requirement), null, "WhiteboardWidget-owned");
+                setWidget(row, 2, closedTasks.get(requirement), null, "WhiteboardWidget-done");
+                
+                row++;
+            }
 
 		userGuide.update();
 		pullNextButton.update();

@@ -28,6 +28,7 @@ public class Uploader extends GUploader implements FileUploadedHandler {
 		this.dialog = uploadWidget.getDialog();
 	}
 
+        @Override
 	public void onFileUploaded(FileUploadedEvent event) {
 		File file = event.getFile();
 		log.debug("File received:", file);

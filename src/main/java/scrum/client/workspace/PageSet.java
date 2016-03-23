@@ -19,7 +19,7 @@ import java.util.List;
 
 public class PageSet {
 
-	private List<Page> pages = new ArrayList<Page>();
+	private final List<Page> pages = new ArrayList<Page>();
 
 	public void addPage(Page page) {
 		pages.add(page);

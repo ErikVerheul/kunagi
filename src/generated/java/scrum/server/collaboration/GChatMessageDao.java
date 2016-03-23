@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GChatMessageDao
             extends ilarkesto.persistence.ADao<ChatMessage> {
 
+    @Override
     public final String getEntityName() {
         return ChatMessage.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return ChatMessage.class;
     }
 
     public Set<ChatMessage> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<ChatMessage>() {
+            @Override
             public boolean test(ChatMessage e) {
                 return Auth.isVisible(e, user);
             }
@@ -73,6 +76,7 @@ public abstract class GChatMessageDao
 
     private final Cache<scrum.server.project.Project,Set<ChatMessage>> chatMessagesByProjectCache = new Cache<scrum.server.project.Project,Set<ChatMessage>>(
             new Cache.Factory<scrum.server.project.Project,Set<ChatMessage>>() {
+                @Override
                 public Set<ChatMessage> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -101,6 +105,7 @@ public abstract class GChatMessageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ChatMessage e) {
             return e.isProject(value);
         }
@@ -113,6 +118,7 @@ public abstract class GChatMessageDao
 
     private final Cache<scrum.server.admin.User,Set<ChatMessage>> chatMessagesByAuthorCache = new Cache<scrum.server.admin.User,Set<ChatMessage>>(
             new Cache.Factory<scrum.server.admin.User,Set<ChatMessage>>() {
+                @Override
                 public Set<ChatMessage> create(scrum.server.admin.User author) {
                     return getEntities(new IsAuthor(author));
                 }
@@ -141,6 +147,7 @@ public abstract class GChatMessageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ChatMessage e) {
             return e.isAuthor(value);
         }
@@ -153,6 +160,7 @@ public abstract class GChatMessageDao
 
     private final Cache<java.lang.String,Set<ChatMessage>> chatMessagesByTextCache = new Cache<java.lang.String,Set<ChatMessage>>(
             new Cache.Factory<java.lang.String,Set<ChatMessage>>() {
+                @Override
                 public Set<ChatMessage> create(java.lang.String text) {
                     return getEntities(new IsText(text));
                 }
@@ -181,6 +189,7 @@ public abstract class GChatMessageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ChatMessage e) {
             return e.isText(value);
         }
@@ -193,6 +202,7 @@ public abstract class GChatMessageDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<ChatMessage>> chatMessagesByDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<ChatMessage>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<ChatMessage>>() {
+                @Override
                 public Set<ChatMessage> create(ilarkesto.core.time.DateAndTime dateAndTime) {
                     return getEntities(new IsDateAndTime(dateAndTime));
                 }
@@ -221,6 +231,7 @@ public abstract class GChatMessageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ChatMessage e) {
             return e.isDateAndTime(value);
         }

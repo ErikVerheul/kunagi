@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GRiskDao
             extends ilarkesto.persistence.ADao<Risk> {
 
+    @Override
     public final String getEntityName() {
         return Risk.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Risk.class;
     }
 
     public Set<Risk> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Risk>() {
+            @Override
             public boolean test(Risk e) {
                 return Auth.isVisible(e, user);
             }
@@ -81,6 +84,7 @@ public abstract class GRiskDao
 
     private final Cache<scrum.server.project.Project,Set<Risk>> risksByProjectCache = new Cache<scrum.server.project.Project,Set<Risk>>(
             new Cache.Factory<scrum.server.project.Project,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -109,6 +113,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isProject(value);
         }
@@ -121,6 +126,7 @@ public abstract class GRiskDao
 
     private final Cache<Integer,Set<Risk>> risksByNumberCache = new Cache<Integer,Set<Risk>>(
             new Cache.Factory<Integer,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -149,6 +155,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isNumber(value);
         }
@@ -161,6 +168,7 @@ public abstract class GRiskDao
 
     private final Cache<java.lang.String,Set<Risk>> risksByLabelCache = new Cache<java.lang.String,Set<Risk>>(
             new Cache.Factory<java.lang.String,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -189,6 +197,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isLabel(value);
         }
@@ -201,6 +210,7 @@ public abstract class GRiskDao
 
     private final Cache<java.lang.String,Set<Risk>> risksByDescriptionCache = new Cache<java.lang.String,Set<Risk>>(
             new Cache.Factory<java.lang.String,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -229,6 +239,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isDescription(value);
         }
@@ -241,6 +252,7 @@ public abstract class GRiskDao
 
     private final Cache<java.lang.String,Set<Risk>> risksByProbabilityMitigationCache = new Cache<java.lang.String,Set<Risk>>(
             new Cache.Factory<java.lang.String,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(java.lang.String probabilityMitigation) {
                     return getEntities(new IsProbabilityMitigation(probabilityMitigation));
                 }
@@ -269,6 +281,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isProbabilityMitigation(value);
         }
@@ -281,6 +294,7 @@ public abstract class GRiskDao
 
     private final Cache<java.lang.String,Set<Risk>> risksByImpactMitigationCache = new Cache<java.lang.String,Set<Risk>>(
             new Cache.Factory<java.lang.String,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(java.lang.String impactMitigation) {
                     return getEntities(new IsImpactMitigation(impactMitigation));
                 }
@@ -309,6 +323,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isImpactMitigation(value);
         }
@@ -321,6 +336,7 @@ public abstract class GRiskDao
 
     private final Cache<Integer,Set<Risk>> risksByProbabilityCache = new Cache<Integer,Set<Risk>>(
             new Cache.Factory<Integer,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(Integer probability) {
                     return getEntities(new IsProbability(probability));
                 }
@@ -349,6 +365,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isProbability(value);
         }
@@ -361,6 +378,7 @@ public abstract class GRiskDao
 
     private final Cache<Integer,Set<Risk>> risksByImpactCache = new Cache<Integer,Set<Risk>>(
             new Cache.Factory<Integer,Set<Risk>>() {
+                @Override
                 public Set<Risk> create(Integer impact) {
                     return getEntities(new IsImpact(impact));
                 }
@@ -389,6 +407,7 @@ public abstract class GRiskDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Risk e) {
             return e.isImpact(value);
         }

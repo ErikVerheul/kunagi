@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GProjectDao
             extends ilarkesto.persistence.ADao<Project> {
 
+    @Override
     public final String getEntityName() {
         return Project.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Project.class;
     }
 
     public Set<Project> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Project>() {
+            @Override
             public boolean test(Project e) {
                 return Auth.isVisible(e, user);
             }
@@ -168,6 +171,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLabel(value);
         }
@@ -180,6 +184,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByVisionCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String vision) {
                     return getEntities(new IsVision(vision));
                 }
@@ -208,6 +213,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isVision(value);
         }
@@ -220,6 +226,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByProductLabelCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String productLabel) {
                     return getEntities(new IsProductLabel(productLabel));
                 }
@@ -248,6 +255,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isProductLabel(value);
         }
@@ -260,6 +268,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByShortDescriptionCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String shortDescription) {
                     return getEntities(new IsShortDescription(shortDescription));
                 }
@@ -288,6 +297,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isShortDescription(value);
         }
@@ -300,6 +310,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByDescriptionCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -328,6 +339,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isDescription(value);
         }
@@ -340,6 +352,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByLongDescriptionCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String longDescription) {
                     return getEntities(new IsLongDescription(longDescription));
                 }
@@ -368,6 +381,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLongDescription(value);
         }
@@ -380,6 +394,7 @@ public abstract class GProjectDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Project>> projectsByBeginCache = new Cache<ilarkesto.core.time.Date,Set<Project>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Project>>() {
+                @Override
                 public Set<Project> create(ilarkesto.core.time.Date begin) {
                     return getEntities(new IsBegin(begin));
                 }
@@ -408,6 +423,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isBegin(value);
         }
@@ -420,6 +436,7 @@ public abstract class GProjectDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Project>> projectsByEndCache = new Cache<ilarkesto.core.time.Date,Set<Project>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Project>>() {
+                @Override
                 public Set<Project> create(ilarkesto.core.time.Date end) {
                     return getEntities(new IsEnd(end));
                 }
@@ -448,6 +465,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isEnd(value);
         }
@@ -460,6 +478,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.admin.User,Set<Project>> projectsByParticipantCache = new Cache<scrum.server.admin.User,Set<Project>>(
             new Cache.Factory<scrum.server.admin.User,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.admin.User participant) {
                     return getEntities(new ContainsParticipant(participant));
                 }
@@ -488,6 +507,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsParticipant(value);
         }
@@ -500,6 +520,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.admin.User,Set<Project>> projectsByAdminCache = new Cache<scrum.server.admin.User,Set<Project>>(
             new Cache.Factory<scrum.server.admin.User,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.admin.User admin) {
                     return getEntities(new ContainsAdmin(admin));
                 }
@@ -528,6 +549,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsAdmin(value);
         }
@@ -540,6 +562,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.admin.User,Set<Project>> projectsByProductOwnerCache = new Cache<scrum.server.admin.User,Set<Project>>(
             new Cache.Factory<scrum.server.admin.User,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.admin.User productOwner) {
                     return getEntities(new ContainsProductOwner(productOwner));
                 }
@@ -568,6 +591,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsProductOwner(value);
         }
@@ -580,6 +604,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.admin.User,Set<Project>> projectsByScrumMasterCache = new Cache<scrum.server.admin.User,Set<Project>>(
             new Cache.Factory<scrum.server.admin.User,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.admin.User scrumMaster) {
                     return getEntities(new ContainsScrumMaster(scrumMaster));
                 }
@@ -608,6 +633,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsScrumMaster(value);
         }
@@ -620,6 +646,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.admin.User,Set<Project>> projectsByTeamMemberCache = new Cache<scrum.server.admin.User,Set<Project>>(
             new Cache.Factory<scrum.server.admin.User,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.admin.User teamMember) {
                     return getEntities(new ContainsTeamMember(teamMember));
                 }
@@ -648,6 +675,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsTeamMember(value);
         }
@@ -660,6 +688,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<Project>> projectsByCurrentSprintCache = new Cache<scrum.server.sprint.Sprint,Set<Project>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.sprint.Sprint currentSprint) {
                     return getEntities(new IsCurrentSprint(currentSprint));
                 }
@@ -688,6 +717,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isCurrentSprint(value);
         }
@@ -700,6 +730,7 @@ public abstract class GProjectDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<Project>> projectsByNextSprintCache = new Cache<scrum.server.sprint.Sprint,Set<Project>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<Project>>() {
+                @Override
                 public Set<Project> create(scrum.server.sprint.Sprint nextSprint) {
                     return getEntities(new IsNextSprint(nextSprint));
                 }
@@ -728,6 +759,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isNextSprint(value);
         }
@@ -740,6 +772,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.Integer,Set<Project>> projectsByVelocityCache = new Cache<java.lang.Integer,Set<Project>>(
             new Cache.Factory<java.lang.Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.Integer velocity) {
                     return getEntities(new IsVelocity(velocity));
                 }
@@ -768,6 +801,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isVelocity(value);
         }
@@ -780,6 +814,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByRequirementsOrderIdCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String requirementsOrderId) {
                     return getEntities(new ContainsRequirementsOrderId(requirementsOrderId));
                 }
@@ -808,6 +843,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsRequirementsOrderId(value);
         }
@@ -820,6 +856,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByUrgentIssuesOrderIdCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String urgentIssuesOrderId) {
                     return getEntities(new ContainsUrgentIssuesOrderId(urgentIssuesOrderId));
                 }
@@ -848,6 +885,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.containsUrgentIssuesOrderId(value);
         }
@@ -860,6 +898,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastSprintNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastSprintNumber) {
                     return getEntities(new IsLastSprintNumber(lastSprintNumber));
                 }
@@ -888,6 +927,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastSprintNumber(value);
         }
@@ -900,6 +940,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastTaskNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastTaskNumber) {
                     return getEntities(new IsLastTaskNumber(lastTaskNumber));
                 }
@@ -928,6 +969,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastTaskNumber(value);
         }
@@ -940,6 +982,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastRequirementNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastRequirementNumber) {
                     return getEntities(new IsLastRequirementNumber(lastRequirementNumber));
                 }
@@ -968,6 +1011,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastRequirementNumber(value);
         }
@@ -980,6 +1024,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastQualityNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastQualityNumber) {
                     return getEntities(new IsLastQualityNumber(lastQualityNumber));
                 }
@@ -1008,6 +1053,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastQualityNumber(value);
         }
@@ -1020,6 +1066,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastRiskNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastRiskNumber) {
                     return getEntities(new IsLastRiskNumber(lastRiskNumber));
                 }
@@ -1048,6 +1095,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastRiskNumber(value);
         }
@@ -1060,6 +1108,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastIssueNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastIssueNumber) {
                     return getEntities(new IsLastIssueNumber(lastIssueNumber));
                 }
@@ -1088,6 +1137,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastIssueNumber(value);
         }
@@ -1100,6 +1150,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastImpedimentNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastImpedimentNumber) {
                     return getEntities(new IsLastImpedimentNumber(lastImpedimentNumber));
                 }
@@ -1128,6 +1179,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastImpedimentNumber(value);
         }
@@ -1140,6 +1192,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastFileNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastFileNumber) {
                     return getEntities(new IsLastFileNumber(lastFileNumber));
                 }
@@ -1168,6 +1221,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastFileNumber(value);
         }
@@ -1180,6 +1234,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastSubjectNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastSubjectNumber) {
                     return getEntities(new IsLastSubjectNumber(lastSubjectNumber));
                 }
@@ -1208,6 +1263,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastSubjectNumber(value);
         }
@@ -1220,6 +1276,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastEventNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastEventNumber) {
                     return getEntities(new IsLastEventNumber(lastEventNumber));
                 }
@@ -1248,6 +1305,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastEventNumber(value);
         }
@@ -1260,6 +1318,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastReleaseNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastReleaseNumber) {
                     return getEntities(new IsLastReleaseNumber(lastReleaseNumber));
                 }
@@ -1288,6 +1347,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastReleaseNumber(value);
         }
@@ -1300,6 +1360,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByLastBlogEntryNumberCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer lastBlogEntryNumber) {
                     return getEntities(new IsLastBlogEntryNumber(lastBlogEntryNumber));
                 }
@@ -1328,6 +1389,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastBlogEntryNumber(value);
         }
@@ -1340,6 +1402,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByPunishmentUnitCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String punishmentUnit) {
                     return getEntities(new IsPunishmentUnit(punishmentUnit));
                 }
@@ -1368,6 +1431,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isPunishmentUnit(value);
         }
@@ -1380,6 +1444,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByPunishmentFactorCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer punishmentFactor) {
                     return getEntities(new IsPunishmentFactor(punishmentFactor));
                 }
@@ -1408,6 +1473,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isPunishmentFactor(value);
         }
@@ -1420,6 +1486,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByHomepageDirCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String homepageDir) {
                     return getEntities(new IsHomepageDir(homepageDir));
                 }
@@ -1448,6 +1515,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isHomepageDir(value);
         }
@@ -1460,6 +1528,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByHomepageUrlCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String homepageUrl) {
                     return getEntities(new IsHomepageUrl(homepageUrl));
                 }
@@ -1488,6 +1557,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isHomepageUrl(value);
         }
@@ -1500,6 +1570,7 @@ public abstract class GProjectDao
 
     private final Cache<Boolean,Set<Project>> projectsByAutoUpdateHomepageCache = new Cache<Boolean,Set<Project>>(
             new Cache.Factory<Boolean,Set<Project>>() {
+                @Override
                 public Set<Project> create(Boolean autoUpdateHomepage) {
                     return getEntities(new IsAutoUpdateHomepage(autoUpdateHomepage));
                 }
@@ -1517,6 +1588,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return value == e.isAutoUpdateHomepage();
         }
@@ -1529,6 +1601,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByReleaseScriptPathCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String releaseScriptPath) {
                     return getEntities(new IsReleaseScriptPath(releaseScriptPath));
                 }
@@ -1557,6 +1630,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isReleaseScriptPath(value);
         }
@@ -1569,6 +1643,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsBySupportEmailCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String supportEmail) {
                     return getEntities(new IsSupportEmail(supportEmail));
                 }
@@ -1597,6 +1672,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isSupportEmail(value);
         }
@@ -1609,6 +1685,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByIssueReplyTemplateCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String issueReplyTemplate) {
                     return getEntities(new IsIssueReplyTemplate(issueReplyTemplate));
                 }
@@ -1637,6 +1714,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isIssueReplyTemplate(value);
         }
@@ -1649,6 +1727,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsBySubscriberNotificationTemplateCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String subscriberNotificationTemplate) {
                     return getEntities(new IsSubscriberNotificationTemplate(subscriberNotificationTemplate));
                 }
@@ -1677,6 +1756,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isSubscriberNotificationTemplate(value);
         }
@@ -1689,6 +1769,7 @@ public abstract class GProjectDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<Project>> projectsByLastOpenedDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<Project>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<Project>>() {
+                @Override
                 public Set<Project> create(ilarkesto.core.time.DateAndTime lastOpenedDateAndTime) {
                     return getEntities(new IsLastOpenedDateAndTime(lastOpenedDateAndTime));
                 }
@@ -1717,6 +1798,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isLastOpenedDateAndTime(value);
         }
@@ -1729,6 +1811,7 @@ public abstract class GProjectDao
 
     private final Cache<Integer,Set<Project>> projectsByFreeDaysCache = new Cache<Integer,Set<Project>>(
             new Cache.Factory<Integer,Set<Project>>() {
+                @Override
                 public Set<Project> create(Integer freeDays) {
                     return getEntities(new IsFreeDays(freeDays));
                 }
@@ -1757,6 +1840,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isFreeDays(value);
         }
@@ -1769,6 +1853,7 @@ public abstract class GProjectDao
 
     private final Cache<java.lang.String,Set<Project>> projectsByReleasingInfoCache = new Cache<java.lang.String,Set<Project>>(
             new Cache.Factory<java.lang.String,Set<Project>>() {
+                @Override
                 public Set<Project> create(java.lang.String releasingInfo) {
                     return getEntities(new IsReleasingInfo(releasingInfo));
                 }
@@ -1797,6 +1882,7 @@ public abstract class GProjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Project e) {
             return e.isReleasingInfo(value);
         }

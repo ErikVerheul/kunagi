@@ -21,6 +21,7 @@ public class QualityDao extends GQualityDao {
 	public Quality getQualityByNumber(final int number, final Project project) {
 		return getEntity(new Predicate<Quality>() {
 
+                        @Override
 			public boolean test(Quality t) {
 				return t.isNumber(number) && t.isProject(project);
 			}

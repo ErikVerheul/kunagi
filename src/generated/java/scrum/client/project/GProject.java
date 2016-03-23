@@ -21,6 +21,7 @@ import ilarkesto.gwt.client.*;
 public abstract class GProject
             extends scrum.client.common.AScrumGwtEntity {
 
+    @Override
     protected scrum.client.Dao getDao() {
         return scrum.client.Dao.get();
     }
@@ -65,6 +66,7 @@ public abstract class GProject
 
     private transient LabelModel labelModel;
 
+    @Override
     public LabelModel getLabelModel() {
         if (labelModel == null) labelModel = createLabelModel();
         return labelModel;

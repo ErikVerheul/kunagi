@@ -21,8 +21,8 @@ import java.util.List;
 
 public class Paragraph extends AWikiElement {
 
-	private List<AWikiElement> elements = new ArrayList<AWikiElement>();
-	private boolean p;
+	private final List<AWikiElement> elements = new ArrayList<AWikiElement>();
+	private final boolean p;
 
 	public Paragraph(boolean p) {
 		super();

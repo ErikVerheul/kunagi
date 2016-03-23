@@ -19,7 +19,7 @@ import java.util.List;
 
 public class WikiModel {
 
-	private List<AWikiElement> elements = new ArrayList<AWikiElement>();
+	private final List<AWikiElement> elements = new ArrayList<AWikiElement>();
 
 	public void add(AWikiElement element) {
 		elements.add(element);

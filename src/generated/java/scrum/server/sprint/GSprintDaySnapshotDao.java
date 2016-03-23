@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSprintDaySnapshotDao
             extends ilarkesto.persistence.ADao<SprintDaySnapshot> {
 
+    @Override
     public final String getEntityName() {
         return SprintDaySnapshot.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return SprintDaySnapshot.class;
     }
 
     public Set<SprintDaySnapshot> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<SprintDaySnapshot>() {
+            @Override
             public boolean test(SprintDaySnapshot e) {
                 return Auth.isVisible(e, user);
             }
@@ -75,6 +78,7 @@ public abstract class GSprintDaySnapshotDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<SprintDaySnapshot>> sprintDaySnapshotsBySprintCache = new Cache<scrum.server.sprint.Sprint,Set<SprintDaySnapshot>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<SprintDaySnapshot>>() {
+                @Override
                 public Set<SprintDaySnapshot> create(scrum.server.sprint.Sprint sprint) {
                     return getEntities(new IsSprint(sprint));
                 }
@@ -103,6 +107,7 @@ public abstract class GSprintDaySnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintDaySnapshot e) {
             return e.isSprint(value);
         }
@@ -115,6 +120,7 @@ public abstract class GSprintDaySnapshotDao
 
     private final Cache<ilarkesto.core.time.Date,Set<SprintDaySnapshot>> sprintDaySnapshotsByDateCache = new Cache<ilarkesto.core.time.Date,Set<SprintDaySnapshot>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<SprintDaySnapshot>>() {
+                @Override
                 public Set<SprintDaySnapshot> create(ilarkesto.core.time.Date date) {
                     return getEntities(new IsDate(date));
                 }
@@ -143,6 +149,7 @@ public abstract class GSprintDaySnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintDaySnapshot e) {
             return e.isDate(value);
         }
@@ -155,6 +162,7 @@ public abstract class GSprintDaySnapshotDao
 
     private final Cache<Integer,Set<SprintDaySnapshot>> sprintDaySnapshotsByRemainingWorkCache = new Cache<Integer,Set<SprintDaySnapshot>>(
             new Cache.Factory<Integer,Set<SprintDaySnapshot>>() {
+                @Override
                 public Set<SprintDaySnapshot> create(Integer remainingWork) {
                     return getEntities(new IsRemainingWork(remainingWork));
                 }
@@ -183,6 +191,7 @@ public abstract class GSprintDaySnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintDaySnapshot e) {
             return e.isRemainingWork(value);
         }
@@ -195,6 +204,7 @@ public abstract class GSprintDaySnapshotDao
 
     private final Cache<Integer,Set<SprintDaySnapshot>> sprintDaySnapshotsByBurnedWorkCache = new Cache<Integer,Set<SprintDaySnapshot>>(
             new Cache.Factory<Integer,Set<SprintDaySnapshot>>() {
+                @Override
                 public Set<SprintDaySnapshot> create(Integer burnedWork) {
                     return getEntities(new IsBurnedWork(burnedWork));
                 }
@@ -223,6 +233,7 @@ public abstract class GSprintDaySnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintDaySnapshot e) {
             return e.isBurnedWork(value);
         }
@@ -235,6 +246,7 @@ public abstract class GSprintDaySnapshotDao
 
     private final Cache<Integer,Set<SprintDaySnapshot>> sprintDaySnapshotsByBurnedWorkFromDeletedCache = new Cache<Integer,Set<SprintDaySnapshot>>(
             new Cache.Factory<Integer,Set<SprintDaySnapshot>>() {
+                @Override
                 public Set<SprintDaySnapshot> create(Integer burnedWorkFromDeleted) {
                     return getEntities(new IsBurnedWorkFromDeleted(burnedWorkFromDeleted));
                 }
@@ -263,6 +275,7 @@ public abstract class GSprintDaySnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintDaySnapshot e) {
             return e.isBurnedWorkFromDeleted(value);
         }

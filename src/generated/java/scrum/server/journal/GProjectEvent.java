@@ -28,10 +28,12 @@ public abstract class GProjectEvent
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.journal.ProjectEventDao getDao() {
         return projectEventDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -44,6 +46,7 @@ public abstract class GProjectEvent
         properties.put("dateAndTime", this.dateAndTime == null ? null : this.dateAndTime.toString());
     }
 
+    @Override
     public int compareTo(ProjectEvent other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -57,6 +60,7 @@ public abstract class GProjectEvent
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -239,6 +243,7 @@ public abstract class GProjectEvent
         setDateAndTime((ilarkesto.core.time.DateAndTime)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -251,6 +256,7 @@ public abstract class GProjectEvent
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -259,6 +265,7 @@ public abstract class GProjectEvent
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

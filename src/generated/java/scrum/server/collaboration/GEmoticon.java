@@ -28,10 +28,12 @@ public abstract class GEmoticon
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.collaboration.EmoticonDao getDao() {
         return emoticonDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -43,6 +45,7 @@ public abstract class GEmoticon
         properties.put("emotion", this.emotion);
     }
 
+    @Override
     public int compareTo(Emoticon other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -191,6 +194,7 @@ public abstract class GEmoticon
         setEmotion((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -202,6 +206,7 @@ public abstract class GEmoticon
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadParentReference(entityId);
@@ -210,6 +215,7 @@ public abstract class GEmoticon
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isParentSet()) {

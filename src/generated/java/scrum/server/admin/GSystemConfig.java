@@ -28,10 +28,12 @@ public abstract class GSystemConfig
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.admin.SystemConfigDao getDao() {
         return systemConfigDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -69,6 +71,7 @@ public abstract class GSystemConfig
         properties.put("subscriptionKeySeed", this.subscriptionKeySeed);
     }
 
+    @Override
     public int compareTo(SystemConfig other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -1077,6 +1080,7 @@ public abstract class GSystemConfig
         setSubscriptionKeySeed((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -1114,12 +1118,14 @@ public abstract class GSystemConfig
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
     }
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
     }

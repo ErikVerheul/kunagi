@@ -78,9 +78,9 @@ public class BurndownChartTest extends ATest {
 
 		File file = new File(OUTPUT_DIR + "/sprintBurndownChart.png");
 		IO.createDirectory(file.getParentFile());
-		BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file));
-		BurndownChart.writeSprintBurndownChart(out, shots, sprintBeginDate, sprintEndDate, freeDays, 1000, 500);
-		out.close();
+            try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
+                BurndownChart.writeSprintBurndownChart(out, shots, sprintBeginDate, sprintEndDate, freeDays, 1000, 500);
+            }
 	}
 
 	private static SprintDaySnapshot shot(Date d, int b, int r) {

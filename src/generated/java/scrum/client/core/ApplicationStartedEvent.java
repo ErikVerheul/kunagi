@@ -7,6 +7,7 @@ public class ApplicationStartedEvent extends ilarkesto.core.event.AEvent {
     public  ApplicationStartedEvent() {
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof ApplicationStartedHandler) {
             log.debug("    " + handler.getClass().getName() + ".onApplicationStarted(event)");

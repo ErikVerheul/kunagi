@@ -28,10 +28,12 @@ public abstract class GChatMessage
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.collaboration.ChatMessageDao getDao() {
         return chatMessageDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -44,6 +46,7 @@ public abstract class GChatMessage
         properties.put("dateAndTime", this.dateAndTime == null ? null : this.dateAndTime.toString());
     }
 
+    @Override
     public int compareTo(ChatMessage other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -228,6 +231,7 @@ public abstract class GChatMessage
         setDateAndTime((ilarkesto.core.time.DateAndTime)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -240,6 +244,7 @@ public abstract class GChatMessage
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -248,6 +253,7 @@ public abstract class GChatMessage
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

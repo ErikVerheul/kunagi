@@ -21,6 +21,7 @@ import ilarkesto.gwt.client.*;
 public abstract class GSubscription
             extends scrum.client.common.AScrumGwtEntity {
 
+    @Override
     protected scrum.client.Dao getDao() {
         return scrum.client.Dao.get();
     }

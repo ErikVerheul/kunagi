@@ -26,6 +26,7 @@ public class ProjectSprintSnapshotDao extends GProjectSprintSnapshotDao {
 		List<ProjectSprintSnapshot> ret = new ArrayList<ProjectSprintSnapshot>(
 				getEntities(new Predicate<ProjectSprintSnapshot>() {
 
+                                        @Override
 					public boolean test(ProjectSprintSnapshot e) {
 						return e.isProject(project);
 					}

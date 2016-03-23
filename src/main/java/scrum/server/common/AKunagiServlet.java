@@ -110,12 +110,12 @@ public abstract class AKunagiServlet extends AServlet<ScrumWebApplication, WebSe
 	protected void logsTable(HtmlRenderer html, List<LogRecord> logs) {
 		startTABLE(html);
 		headersRow(html, "Level", "Logger", "Message", "Context");
-		for (LogRecord log : logs) {
+		for (LogRecord logLocal : logs) {
 			String color = "#666";
-			if (log.level.isErrorOrWorse()) color = "#c00";
-			if (log.level.isWarn()) color = "#990";
-			if (log.level.isInfo()) color = "#000";
-			valuesRowColored(html, color, log.level, log.name, log.getParametersAsString(), log.context);
+			if (logLocal.level.isErrorOrWorse()) color = "#c00";
+			if (logLocal.level.isWarn()) color = "#990";
+			if (logLocal.level.isInfo()) color = "#000";
+			valuesRowColored(html, color, logLocal.level, logLocal.name, logLocal.getParametersAsString(), logLocal.context);
 		}
 		endTABLE(html);
 	}

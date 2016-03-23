@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GWikipageDao
             extends ilarkesto.persistence.ADao<Wikipage> {
 
+    @Override
     public final String getEntityName() {
         return Wikipage.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Wikipage.class;
     }
 
     public Set<Wikipage> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Wikipage>() {
+            @Override
             public boolean test(Wikipage e) {
                 return Auth.isVisible(e, user);
             }
@@ -71,6 +74,7 @@ public abstract class GWikipageDao
 
     private final Cache<scrum.server.project.Project,Set<Wikipage>> wikipagesByProjectCache = new Cache<scrum.server.project.Project,Set<Wikipage>>(
             new Cache.Factory<scrum.server.project.Project,Set<Wikipage>>() {
+                @Override
                 public Set<Wikipage> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -99,6 +103,7 @@ public abstract class GWikipageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Wikipage e) {
             return e.isProject(value);
         }
@@ -111,6 +116,7 @@ public abstract class GWikipageDao
 
     private final Cache<java.lang.String,Set<Wikipage>> wikipagesByNameCache = new Cache<java.lang.String,Set<Wikipage>>(
             new Cache.Factory<java.lang.String,Set<Wikipage>>() {
+                @Override
                 public Set<Wikipage> create(java.lang.String name) {
                     return getEntities(new IsName(name));
                 }
@@ -139,6 +145,7 @@ public abstract class GWikipageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Wikipage e) {
             return e.isName(value);
         }
@@ -151,6 +158,7 @@ public abstract class GWikipageDao
 
     private final Cache<java.lang.String,Set<Wikipage>> wikipagesByTextCache = new Cache<java.lang.String,Set<Wikipage>>(
             new Cache.Factory<java.lang.String,Set<Wikipage>>() {
+                @Override
                 public Set<Wikipage> create(java.lang.String text) {
                     return getEntities(new IsText(text));
                 }
@@ -179,6 +187,7 @@ public abstract class GWikipageDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Wikipage e) {
             return e.isText(value);
         }

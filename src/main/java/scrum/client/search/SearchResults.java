@@ -29,7 +29,7 @@ public class SearchResults {
 
 	private static final Log LOG = Log.get(SearchResults.class);
 
-	private Collection<AScrumGwtEntity> entities = new HashSet<AScrumGwtEntity>();
+	private final Collection<AScrumGwtEntity> entities = new HashSet<AScrumGwtEntity>();
 
 	public boolean isEmpty() {
 		return entities.isEmpty();

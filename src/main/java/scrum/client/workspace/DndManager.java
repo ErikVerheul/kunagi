@@ -27,9 +27,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class DndManager extends GDndManager {
 
-	private ScrumDragController dragController;
-	private Map<ABlockWidget, BlockDropController> blockDropControllers;
-	private Map<BlockListWidget, BlockListDropController> blockListDropControllers;
+	private final ScrumDragController dragController;
+	private final Map<ABlockWidget, BlockDropController> blockDropControllers;
+	private final Map<BlockListWidget, BlockListDropController> blockListDropControllers;
 
 	public DndManager() {
 		dragController = new ScrumDragController();

@@ -26,6 +26,7 @@ public class TaskDao extends GTaskDao {
 	public Set<Task> getTasksByProject(final Project project) {
 		return getEntities(new Predicate<Task>() {
 
+                        @Override
 			public boolean test(Task t) {
 				return t.isProject(project);
 			}
@@ -35,6 +36,7 @@ public class TaskDao extends GTaskDao {
 	public Task getTaskByNumber(final int number, final Project project) {
 		return getEntity(new Predicate<Task>() {
 
+                        @Override
 			public boolean test(Task t) {
 				return t.isNumber(number) && t.isProject(project);
 			}
@@ -51,6 +53,7 @@ public class TaskDao extends GTaskDao {
 	public Set<Task> getTasksBySprint(final Sprint sprint) {
 		return getEntities(new Predicate<Task>() {
 
+                        @Override
 			public boolean test(Task task) {
 				return task.isSprint(sprint);
 			}

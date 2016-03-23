@@ -28,10 +28,12 @@ public abstract class GQuality
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.project.QualityDao getDao() {
         return qualityDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -45,6 +47,7 @@ public abstract class GQuality
         properties.put("testDescription", this.testDescription);
     }
 
+    @Override
     public int compareTo(Quality other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -66,6 +69,7 @@ public abstract class GQuality
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -264,6 +268,7 @@ public abstract class GQuality
         setTestDescription((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -277,6 +282,7 @@ public abstract class GQuality
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -284,6 +290,7 @@ public abstract class GQuality
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

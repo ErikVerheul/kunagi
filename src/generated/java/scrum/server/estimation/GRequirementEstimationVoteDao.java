@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GRequirementEstimationVoteDao
             extends ilarkesto.persistence.ADao<RequirementEstimationVote> {
 
+    @Override
     public final String getEntityName() {
         return RequirementEstimationVote.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return RequirementEstimationVote.class;
     }
 
     public Set<RequirementEstimationVote> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<RequirementEstimationVote>() {
+            @Override
             public boolean test(RequirementEstimationVote e) {
                 return Auth.isVisible(e, user);
             }
@@ -71,6 +74,7 @@ public abstract class GRequirementEstimationVoteDao
 
     private final Cache<scrum.server.project.Requirement,Set<RequirementEstimationVote>> requirementEstimationVotesByRequirementCache = new Cache<scrum.server.project.Requirement,Set<RequirementEstimationVote>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<RequirementEstimationVote>>() {
+                @Override
                 public Set<RequirementEstimationVote> create(scrum.server.project.Requirement requirement) {
                     return getEntities(new IsRequirement(requirement));
                 }
@@ -99,6 +103,7 @@ public abstract class GRequirementEstimationVoteDao
             this.value = value;
         }
 
+        @Override
         public boolean test(RequirementEstimationVote e) {
             return e.isRequirement(value);
         }
@@ -111,6 +116,7 @@ public abstract class GRequirementEstimationVoteDao
 
     private final Cache<scrum.server.admin.User,Set<RequirementEstimationVote>> requirementEstimationVotesByUserCache = new Cache<scrum.server.admin.User,Set<RequirementEstimationVote>>(
             new Cache.Factory<scrum.server.admin.User,Set<RequirementEstimationVote>>() {
+                @Override
                 public Set<RequirementEstimationVote> create(scrum.server.admin.User user) {
                     return getEntities(new IsUser(user));
                 }
@@ -139,6 +145,7 @@ public abstract class GRequirementEstimationVoteDao
             this.value = value;
         }
 
+        @Override
         public boolean test(RequirementEstimationVote e) {
             return e.isUser(value);
         }
@@ -151,6 +158,7 @@ public abstract class GRequirementEstimationVoteDao
 
     private final Cache<java.lang.Float,Set<RequirementEstimationVote>> requirementEstimationVotesByEstimatedWorkCache = new Cache<java.lang.Float,Set<RequirementEstimationVote>>(
             new Cache.Factory<java.lang.Float,Set<RequirementEstimationVote>>() {
+                @Override
                 public Set<RequirementEstimationVote> create(java.lang.Float estimatedWork) {
                     return getEntities(new IsEstimatedWork(estimatedWork));
                 }
@@ -179,6 +187,7 @@ public abstract class GRequirementEstimationVoteDao
             this.value = value;
         }
 
+        @Override
         public boolean test(RequirementEstimationVote e) {
             return e.isEstimatedWork(value);
         }

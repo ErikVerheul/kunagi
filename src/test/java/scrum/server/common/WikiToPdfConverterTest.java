@@ -107,14 +107,13 @@ public class WikiToPdfConverterTest extends ATest {
 		WikiParser parser = new WikiParser(sb.toString());
 		WikiModel model = parser.parse(false);
 
-		BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(OUTPUT_DIR + "/wiki.pdf"));
-		PdfBuilder pdfBuilder = new PdfBuilder();
-
-		WikiToPdfConverter converter = new WikiToPdfConverter(model, new TestPdfContext());
-		converter.build(pdfBuilder);
-		pdfBuilder.write(out);
-
-		out.close();
+            try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(OUTPUT_DIR + "/wiki.pdf"))) {
+                PdfBuilder pdfBuilder = new PdfBuilder();
+                
+                WikiToPdfConverter converter = new WikiToPdfConverter(model, new TestPdfContext());
+                converter.build(pdfBuilder);
+                pdfBuilder.write(out);
+            }
 	}
 
 	static class TestPdfContext implements PdfContext {

@@ -7,6 +7,7 @@ public class ProjectDataReceivedEvent extends ilarkesto.core.event.AEvent {
     public  ProjectDataReceivedEvent() {
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof ProjectDataReceivedHandler) {
             log.debug("    " + handler.getClass().getName() + ".onProjectDataReceived(event)");

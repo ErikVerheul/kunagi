@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSprintReportDao
             extends ilarkesto.persistence.ADao<SprintReport> {
 
+    @Override
     public final String getEntityName() {
         return SprintReport.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return SprintReport.class;
     }
 
     public Set<SprintReport> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<SprintReport>() {
+            @Override
             public boolean test(SprintReport e) {
                 return Auth.isVisible(e, user);
             }
@@ -99,6 +102,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.isSprint(value);
         }
@@ -111,6 +115,7 @@ public abstract class GSprintReportDao
 
     private final Cache<scrum.server.project.Requirement,Set<SprintReport>> sprintReportsByCompletedRequirementCache = new Cache<scrum.server.project.Requirement,Set<SprintReport>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(scrum.server.project.Requirement completedRequirement) {
                     return getEntities(new ContainsCompletedRequirement(completedRequirement));
                 }
@@ -139,6 +144,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.containsCompletedRequirement(value);
         }
@@ -151,6 +157,7 @@ public abstract class GSprintReportDao
 
     private final Cache<scrum.server.project.Requirement,Set<SprintReport>> sprintReportsByRejectedRequirementCache = new Cache<scrum.server.project.Requirement,Set<SprintReport>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(scrum.server.project.Requirement rejectedRequirement) {
                     return getEntities(new ContainsRejectedRequirement(rejectedRequirement));
                 }
@@ -179,6 +186,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.containsRejectedRequirement(value);
         }
@@ -191,6 +199,7 @@ public abstract class GSprintReportDao
 
     private final Cache<java.lang.String,Set<SprintReport>> sprintReportsByRequirementsOrderIdCache = new Cache<java.lang.String,Set<SprintReport>>(
             new Cache.Factory<java.lang.String,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(java.lang.String requirementsOrderId) {
                     return getEntities(new ContainsRequirementsOrderId(requirementsOrderId));
                 }
@@ -219,6 +228,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.containsRequirementsOrderId(value);
         }
@@ -231,6 +241,7 @@ public abstract class GSprintReportDao
 
     private final Cache<scrum.server.sprint.Task,Set<SprintReport>> sprintReportsByClosedTaskCache = new Cache<scrum.server.sprint.Task,Set<SprintReport>>(
             new Cache.Factory<scrum.server.sprint.Task,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(scrum.server.sprint.Task closedTask) {
                     return getEntities(new ContainsClosedTask(closedTask));
                 }
@@ -259,6 +270,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.containsClosedTask(value);
         }
@@ -271,6 +283,7 @@ public abstract class GSprintReportDao
 
     private final Cache<scrum.server.sprint.Task,Set<SprintReport>> sprintReportsByOpenTaskCache = new Cache<scrum.server.sprint.Task,Set<SprintReport>>(
             new Cache.Factory<scrum.server.sprint.Task,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(scrum.server.sprint.Task openTask) {
                     return getEntities(new ContainsOpenTask(openTask));
                 }
@@ -299,6 +312,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.containsOpenTask(value);
         }
@@ -311,6 +325,7 @@ public abstract class GSprintReportDao
 
     private final Cache<Integer,Set<SprintReport>> sprintReportsByBurnedWorkCache = new Cache<Integer,Set<SprintReport>>(
             new Cache.Factory<Integer,Set<SprintReport>>() {
+                @Override
                 public Set<SprintReport> create(Integer burnedWork) {
                     return getEntities(new IsBurnedWork(burnedWork));
                 }
@@ -339,6 +354,7 @@ public abstract class GSprintReportDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SprintReport e) {
             return e.isBurnedWork(value);
         }

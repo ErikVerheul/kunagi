@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSubscriptionDao
             extends ilarkesto.persistence.ADao<Subscription> {
 
+    @Override
     public final String getEntityName() {
         return Subscription.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Subscription.class;
     }
 
     public Set<Subscription> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Subscription>() {
+            @Override
             public boolean test(Subscription e) {
                 return Auth.isVisible(e, user);
             }
@@ -89,6 +92,7 @@ public abstract class GSubscriptionDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subscription e) {
             return e.isSubject(value);
         }
@@ -101,6 +105,7 @@ public abstract class GSubscriptionDao
 
     private final Cache<java.lang.String,Set<Subscription>> subscriptionsBySubscribersEmailCache = new Cache<java.lang.String,Set<Subscription>>(
             new Cache.Factory<java.lang.String,Set<Subscription>>() {
+                @Override
                 public Set<Subscription> create(java.lang.String subscribersEmail) {
                     return getEntities(new ContainsSubscribersEmail(subscribersEmail));
                 }
@@ -129,6 +134,7 @@ public abstract class GSubscriptionDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subscription e) {
             return e.containsSubscribersEmail(value);
         }

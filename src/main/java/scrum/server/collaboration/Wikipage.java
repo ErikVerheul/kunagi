@@ -18,6 +18,7 @@ import scrum.server.admin.User;
 
 public class Wikipage extends GWikipage {
 
+        @Override
 	public boolean isVisibleFor(User user) {
 		return getProject().isVisibleFor(user);
 	}

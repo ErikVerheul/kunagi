@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GCommentDao
             extends ilarkesto.persistence.ADao<Comment> {
 
+    @Override
     public final String getEntityName() {
         return Comment.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Comment.class;
     }
 
     public Set<Comment> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Comment>() {
+            @Override
             public boolean test(Comment e) {
                 return Auth.isVisible(e, user);
             }
@@ -79,6 +82,7 @@ public abstract class GCommentDao
 
     private final Cache<ilarkesto.persistence.AEntity,Set<Comment>> commentsByParentCache = new Cache<ilarkesto.persistence.AEntity,Set<Comment>>(
             new Cache.Factory<ilarkesto.persistence.AEntity,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(ilarkesto.persistence.AEntity parent) {
                     return getEntities(new IsParent(parent));
                 }
@@ -107,6 +111,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isParent(value);
         }
@@ -119,6 +124,7 @@ public abstract class GCommentDao
 
     private final Cache<scrum.server.admin.User,Set<Comment>> commentsByAuthorCache = new Cache<scrum.server.admin.User,Set<Comment>>(
             new Cache.Factory<scrum.server.admin.User,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(scrum.server.admin.User author) {
                     return getEntities(new IsAuthor(author));
                 }
@@ -147,6 +153,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isAuthor(value);
         }
@@ -159,6 +166,7 @@ public abstract class GCommentDao
 
     private final Cache<Boolean,Set<Comment>> commentsByPublishedCache = new Cache<Boolean,Set<Comment>>(
             new Cache.Factory<Boolean,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(Boolean published) {
                     return getEntities(new IsPublished(published));
                 }
@@ -176,6 +184,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return value == e.isPublished();
         }
@@ -188,6 +197,7 @@ public abstract class GCommentDao
 
     private final Cache<java.lang.String,Set<Comment>> commentsByAuthorNameCache = new Cache<java.lang.String,Set<Comment>>(
             new Cache.Factory<java.lang.String,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(java.lang.String authorName) {
                     return getEntities(new IsAuthorName(authorName));
                 }
@@ -216,6 +226,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isAuthorName(value);
         }
@@ -228,6 +239,7 @@ public abstract class GCommentDao
 
     private final Cache<java.lang.String,Set<Comment>> commentsByAuthorEmailCache = new Cache<java.lang.String,Set<Comment>>(
             new Cache.Factory<java.lang.String,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(java.lang.String authorEmail) {
                     return getEntities(new IsAuthorEmail(authorEmail));
                 }
@@ -256,6 +268,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isAuthorEmail(value);
         }
@@ -268,6 +281,7 @@ public abstract class GCommentDao
 
     private final Cache<Boolean,Set<Comment>> commentsByAuthorNameVisibleCache = new Cache<Boolean,Set<Comment>>(
             new Cache.Factory<Boolean,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(Boolean authorNameVisible) {
                     return getEntities(new IsAuthorNameVisible(authorNameVisible));
                 }
@@ -285,6 +299,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return value == e.isAuthorNameVisible();
         }
@@ -297,6 +312,7 @@ public abstract class GCommentDao
 
     private final Cache<java.lang.String,Set<Comment>> commentsByTextCache = new Cache<java.lang.String,Set<Comment>>(
             new Cache.Factory<java.lang.String,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(java.lang.String text) {
                     return getEntities(new IsText(text));
                 }
@@ -325,6 +341,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isText(value);
         }
@@ -337,6 +354,7 @@ public abstract class GCommentDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<Comment>> commentsByDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<Comment>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<Comment>>() {
+                @Override
                 public Set<Comment> create(ilarkesto.core.time.DateAndTime dateAndTime) {
                     return getEntities(new IsDateAndTime(dateAndTime));
                 }
@@ -365,6 +383,7 @@ public abstract class GCommentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Comment e) {
             return e.isDateAndTime(value);
         }

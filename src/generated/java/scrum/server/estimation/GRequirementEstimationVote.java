@@ -28,10 +28,12 @@ public abstract class GRequirementEstimationVote
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.estimation.RequirementEstimationVoteDao getDao() {
         return requirementEstimationVoteDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -43,6 +45,7 @@ public abstract class GRequirementEstimationVote
         properties.put("estimatedWork", this.estimatedWork);
     }
 
+    @Override
     public int compareTo(RequirementEstimationVote other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -190,6 +193,7 @@ public abstract class GRequirementEstimationVote
         setEstimatedWork((java.lang.Float)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -201,6 +205,7 @@ public abstract class GRequirementEstimationVote
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadRequirementReference(entityId);
@@ -209,6 +214,7 @@ public abstract class GRequirementEstimationVote
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isRequirementSet()) {

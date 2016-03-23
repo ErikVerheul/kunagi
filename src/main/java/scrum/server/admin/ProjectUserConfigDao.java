@@ -22,6 +22,7 @@ public class ProjectUserConfigDao extends GProjectUserConfigDao {
 	public ProjectUserConfig getProjectUserConfig(final Project project, final User user) {
 		ProjectUserConfig projectUserConfig = getEntity(new Predicate<ProjectUserConfig>() {
 
+                        @Override
 			public boolean test(ProjectUserConfig e) {
 				return e.isProject(project) && e.isUser(user);
 			}

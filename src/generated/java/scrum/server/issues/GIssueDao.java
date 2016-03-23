@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GIssueDao
             extends ilarkesto.persistence.ADao<Issue> {
 
+    @Override
     public final String getEntityName() {
         return Issue.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Issue.class;
     }
 
     public Set<Issue> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Issue>() {
+            @Override
             public boolean test(Issue e) {
                 return Auth.isVisible(e, user);
             }
@@ -107,6 +110,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.project.Project,Set<Issue>> issuesByProjectCache = new Cache<scrum.server.project.Project,Set<Issue>>(
             new Cache.Factory<scrum.server.project.Project,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -135,6 +139,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isProject(value);
         }
@@ -147,6 +152,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.project.Requirement,Set<Issue>> issuesByStoryCache = new Cache<scrum.server.project.Requirement,Set<Issue>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.project.Requirement story) {
                     return getEntities(new IsStory(story));
                 }
@@ -175,6 +181,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isStory(value);
         }
@@ -187,6 +194,7 @@ public abstract class GIssueDao
 
     private final Cache<Integer,Set<Issue>> issuesByNumberCache = new Cache<Integer,Set<Issue>>(
             new Cache.Factory<Integer,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -215,6 +223,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isNumber(value);
         }
@@ -227,6 +236,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByTypeCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String type) {
                     return getEntities(new IsType(type));
                 }
@@ -255,6 +265,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isType(value);
         }
@@ -267,6 +278,7 @@ public abstract class GIssueDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<Issue>> issuesByDateCache = new Cache<ilarkesto.core.time.DateAndTime,Set<Issue>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(ilarkesto.core.time.DateAndTime date) {
                     return getEntities(new IsDate(date));
                 }
@@ -295,6 +307,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isDate(value);
         }
@@ -307,6 +320,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.admin.User,Set<Issue>> issuesByCreatorCache = new Cache<scrum.server.admin.User,Set<Issue>>(
             new Cache.Factory<scrum.server.admin.User,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.admin.User creator) {
                     return getEntities(new IsCreator(creator));
                 }
@@ -335,6 +349,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isCreator(value);
         }
@@ -347,6 +362,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByLabelCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -375,6 +391,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isLabel(value);
         }
@@ -387,6 +404,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByDescriptionCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -415,6 +433,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isDescription(value);
         }
@@ -427,6 +446,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByStatementCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String statement) {
                     return getEntities(new IsStatement(statement));
                 }
@@ -455,6 +475,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isStatement(value);
         }
@@ -467,6 +488,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByIssuerNameCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String issuerName) {
                     return getEntities(new IsIssuerName(issuerName));
                 }
@@ -495,6 +517,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isIssuerName(value);
         }
@@ -507,6 +530,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByIssuerEmailCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String issuerEmail) {
                     return getEntities(new IsIssuerEmail(issuerEmail));
                 }
@@ -535,6 +559,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isIssuerEmail(value);
         }
@@ -547,6 +572,7 @@ public abstract class GIssueDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Issue>> issuesByAcceptDateCache = new Cache<ilarkesto.core.time.Date,Set<Issue>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(ilarkesto.core.time.Date acceptDate) {
                     return getEntities(new IsAcceptDate(acceptDate));
                 }
@@ -575,6 +601,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isAcceptDate(value);
         }
@@ -587,6 +614,7 @@ public abstract class GIssueDao
 
     private final Cache<Boolean,Set<Issue>> issuesByUrgentCache = new Cache<Boolean,Set<Issue>>(
             new Cache.Factory<Boolean,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(Boolean urgent) {
                     return getEntities(new IsUrgent(urgent));
                 }
@@ -604,6 +632,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return value == e.isUrgent();
         }
@@ -616,6 +645,7 @@ public abstract class GIssueDao
 
     private final Cache<Integer,Set<Issue>> issuesBySeverityCache = new Cache<Integer,Set<Issue>>(
             new Cache.Factory<Integer,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(Integer severity) {
                     return getEntities(new IsSeverity(severity));
                 }
@@ -644,6 +674,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isSeverity(value);
         }
@@ -656,6 +687,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.admin.User,Set<Issue>> issuesByOwnerCache = new Cache<scrum.server.admin.User,Set<Issue>>(
             new Cache.Factory<scrum.server.admin.User,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.admin.User owner) {
                     return getEntities(new IsOwner(owner));
                 }
@@ -684,6 +716,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isOwner(value);
         }
@@ -696,6 +729,7 @@ public abstract class GIssueDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Issue>> issuesByFixDateCache = new Cache<ilarkesto.core.time.Date,Set<Issue>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(ilarkesto.core.time.Date fixDate) {
                     return getEntities(new IsFixDate(fixDate));
                 }
@@ -724,6 +758,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isFixDate(value);
         }
@@ -736,6 +771,7 @@ public abstract class GIssueDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Issue>> issuesByCloseDateCache = new Cache<ilarkesto.core.time.Date,Set<Issue>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(ilarkesto.core.time.Date closeDate) {
                     return getEntities(new IsCloseDate(closeDate));
                 }
@@ -764,6 +800,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isCloseDate(value);
         }
@@ -776,6 +813,7 @@ public abstract class GIssueDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Issue>> issuesBySuspendedUntilDateCache = new Cache<ilarkesto.core.time.Date,Set<Issue>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(ilarkesto.core.time.Date suspendedUntilDate) {
                     return getEntities(new IsSuspendedUntilDate(suspendedUntilDate));
                 }
@@ -804,6 +842,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.isSuspendedUntilDate(value);
         }
@@ -816,6 +855,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.release.Release,Set<Issue>> issuesByAffectedReleaseCache = new Cache<scrum.server.release.Release,Set<Issue>>(
             new Cache.Factory<scrum.server.release.Release,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.release.Release affectedRelease) {
                     return getEntities(new ContainsAffectedRelease(affectedRelease));
                 }
@@ -844,6 +884,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.containsAffectedRelease(value);
         }
@@ -856,6 +897,7 @@ public abstract class GIssueDao
 
     private final Cache<scrum.server.release.Release,Set<Issue>> issuesByFixReleaseCache = new Cache<scrum.server.release.Release,Set<Issue>>(
             new Cache.Factory<scrum.server.release.Release,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(scrum.server.release.Release fixRelease) {
                     return getEntities(new ContainsFixRelease(fixRelease));
                 }
@@ -884,6 +926,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.containsFixRelease(value);
         }
@@ -896,6 +939,7 @@ public abstract class GIssueDao
 
     private final Cache<Boolean,Set<Issue>> issuesByPublishedCache = new Cache<Boolean,Set<Issue>>(
             new Cache.Factory<Boolean,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(Boolean published) {
                     return getEntities(new IsPublished(published));
                 }
@@ -913,6 +957,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return value == e.isPublished();
         }
@@ -925,6 +970,7 @@ public abstract class GIssueDao
 
     private final Cache<java.lang.String,Set<Issue>> issuesByThemeCache = new Cache<java.lang.String,Set<Issue>>(
             new Cache.Factory<java.lang.String,Set<Issue>>() {
+                @Override
                 public Set<Issue> create(java.lang.String theme) {
                     return getEntities(new ContainsTheme(theme));
                 }
@@ -953,6 +999,7 @@ public abstract class GIssueDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Issue e) {
             return e.containsTheme(value);
         }

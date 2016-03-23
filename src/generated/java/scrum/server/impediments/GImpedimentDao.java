@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GImpedimentDao
             extends ilarkesto.persistence.ADao<Impediment> {
 
+    @Override
     public final String getEntityName() {
         return Impediment.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Impediment.class;
     }
 
     public Set<Impediment> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Impediment>() {
+            @Override
             public boolean test(Impediment e) {
                 return Auth.isVisible(e, user);
             }
@@ -78,6 +81,7 @@ public abstract class GImpedimentDao
 
     private final Cache<scrum.server.project.Project,Set<Impediment>> impedimentsByProjectCache = new Cache<scrum.server.project.Project,Set<Impediment>>(
             new Cache.Factory<scrum.server.project.Project,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -106,6 +110,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isProject(value);
         }
@@ -118,6 +123,7 @@ public abstract class GImpedimentDao
 
     private final Cache<Integer,Set<Impediment>> impedimentsByNumberCache = new Cache<Integer,Set<Impediment>>(
             new Cache.Factory<Integer,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -146,6 +152,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isNumber(value);
         }
@@ -158,6 +165,7 @@ public abstract class GImpedimentDao
 
     private final Cache<java.lang.String,Set<Impediment>> impedimentsByLabelCache = new Cache<java.lang.String,Set<Impediment>>(
             new Cache.Factory<java.lang.String,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -186,6 +194,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isLabel(value);
         }
@@ -198,6 +207,7 @@ public abstract class GImpedimentDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Impediment>> impedimentsByDateCache = new Cache<ilarkesto.core.time.Date,Set<Impediment>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(ilarkesto.core.time.Date date) {
                     return getEntities(new IsDate(date));
                 }
@@ -226,6 +236,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isDate(value);
         }
@@ -238,6 +249,7 @@ public abstract class GImpedimentDao
 
     private final Cache<java.lang.String,Set<Impediment>> impedimentsByDescriptionCache = new Cache<java.lang.String,Set<Impediment>>(
             new Cache.Factory<java.lang.String,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -266,6 +278,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isDescription(value);
         }
@@ -278,6 +291,7 @@ public abstract class GImpedimentDao
 
     private final Cache<java.lang.String,Set<Impediment>> impedimentsBySolutionCache = new Cache<java.lang.String,Set<Impediment>>(
             new Cache.Factory<java.lang.String,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(java.lang.String solution) {
                     return getEntities(new IsSolution(solution));
                 }
@@ -306,6 +320,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return e.isSolution(value);
         }
@@ -318,6 +333,7 @@ public abstract class GImpedimentDao
 
     private final Cache<Boolean,Set<Impediment>> impedimentsByClosedCache = new Cache<Boolean,Set<Impediment>>(
             new Cache.Factory<Boolean,Set<Impediment>>() {
+                @Override
                 public Set<Impediment> create(Boolean closed) {
                     return getEntities(new IsClosed(closed));
                 }
@@ -335,6 +351,7 @@ public abstract class GImpedimentDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Impediment e) {
             return value == e.isClosed();
         }

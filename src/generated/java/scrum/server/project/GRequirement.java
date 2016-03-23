@@ -28,10 +28,12 @@ public abstract class GRequirement
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.project.RequirementDao getDao() {
         return requirementDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -57,6 +59,7 @@ public abstract class GRequirement
         properties.put("epicId", this.epicId);
     }
 
+    @Override
     public int compareTo(Requirement other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -90,6 +93,7 @@ public abstract class GRequirement
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -911,6 +915,7 @@ public abstract class GRequirement
         setEpic(value == null ? null : (scrum.server.project.Requirement)requirementDao.getById((String)value));
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -936,6 +941,7 @@ public abstract class GRequirement
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -950,6 +956,7 @@ public abstract class GRequirement
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

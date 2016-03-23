@@ -24,7 +24,7 @@ import scrum.client.common.AScrumGwtEntity;
 
 public class Search extends GSearch implements SearchResultsChangedHandler {
 
-	private SearchResults results = new SearchResults();
+	private final SearchResults results = new SearchResults();
 	private SearchResultsWidget resultsWidget;
 	private String searchText;
 

@@ -19,6 +19,7 @@ import scrum.server.admin.User;
 
 public class Emoticon extends GEmoticon {
 
+        @Override
 	public boolean isVisibleFor(User user) {
 		return Auth.isVisible(getParent(), user);
 	}

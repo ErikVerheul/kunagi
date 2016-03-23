@@ -105,9 +105,9 @@ public class SprintHistoryHelper {
 
 	public static class StoryInfo {
 
-		private String reference;
-		private float estimatedWork;
-		private String label;
+		private final String reference;
+		private final float estimatedWork;
+		private final String label;
 		private List<TaskInfo> tasks = new ArrayList<TaskInfo>();
 
 		public StoryInfo(String[] record) {

@@ -28,10 +28,12 @@ public abstract class GChange
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.journal.ChangeDao getDao() {
         return changeDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -47,6 +49,7 @@ public abstract class GChange
         properties.put("comment", this.comment);
     }
 
+    @Override
     public int compareTo(Change other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -339,6 +342,7 @@ public abstract class GChange
         setComment((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -354,6 +358,7 @@ public abstract class GChange
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadParentReference(entityId);
@@ -362,6 +367,7 @@ public abstract class GChange
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isParentSet()) {

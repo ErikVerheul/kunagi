@@ -77,19 +77,23 @@ public class PagePanel extends Composite implements HasWidgets {
 		spacered = true;
 	}
 
+        @Override
 	public void add(Widget w) {
 		content.add(w);
 	}
 
+        @Override
 	public boolean remove(Widget w) {
 		return content.remove(w);
 	}
 
+        @Override
 	public void clear() {
 		content.clear();
 		spacered = false;
 	}
 
+        @Override
 	public Iterator<Widget> iterator() {
 		return content.iterator();
 	}

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSubjectDao
             extends ilarkesto.persistence.ADao<Subject> {
 
+    @Override
     public final String getEntityName() {
         return Subject.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Subject.class;
     }
 
     public Set<Subject> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Subject>() {
+            @Override
             public boolean test(Subject e) {
                 return Auth.isVisible(e, user);
             }
@@ -73,6 +76,7 @@ public abstract class GSubjectDao
 
     private final Cache<scrum.server.project.Project,Set<Subject>> subjectsByProjectCache = new Cache<scrum.server.project.Project,Set<Subject>>(
             new Cache.Factory<scrum.server.project.Project,Set<Subject>>() {
+                @Override
                 public Set<Subject> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -101,6 +105,7 @@ public abstract class GSubjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subject e) {
             return e.isProject(value);
         }
@@ -113,6 +118,7 @@ public abstract class GSubjectDao
 
     private final Cache<java.lang.String,Set<Subject>> subjectsByLabelCache = new Cache<java.lang.String,Set<Subject>>(
             new Cache.Factory<java.lang.String,Set<Subject>>() {
+                @Override
                 public Set<Subject> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -141,6 +147,7 @@ public abstract class GSubjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subject e) {
             return e.isLabel(value);
         }
@@ -153,6 +160,7 @@ public abstract class GSubjectDao
 
     private final Cache<java.lang.String,Set<Subject>> subjectsByTextCache = new Cache<java.lang.String,Set<Subject>>(
             new Cache.Factory<java.lang.String,Set<Subject>>() {
+                @Override
                 public Set<Subject> create(java.lang.String text) {
                     return getEntities(new IsText(text));
                 }
@@ -181,6 +189,7 @@ public abstract class GSubjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subject e) {
             return e.isText(value);
         }
@@ -193,6 +202,7 @@ public abstract class GSubjectDao
 
     private final Cache<Integer,Set<Subject>> subjectsByNumberCache = new Cache<Integer,Set<Subject>>(
             new Cache.Factory<Integer,Set<Subject>>() {
+                @Override
                 public Set<Subject> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -221,6 +231,7 @@ public abstract class GSubjectDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Subject e) {
             return e.isNumber(value);
         }

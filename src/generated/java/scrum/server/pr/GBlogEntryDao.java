@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GBlogEntryDao
             extends ilarkesto.persistence.ADao<BlogEntry> {
 
+    @Override
     public final String getEntityName() {
         return BlogEntry.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return BlogEntry.class;
     }
 
     public Set<BlogEntry> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<BlogEntry>() {
+            @Override
             public boolean test(BlogEntry e) {
                 return Auth.isVisible(e, user);
             }
@@ -80,6 +83,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<scrum.server.project.Project,Set<BlogEntry>> blogEntrysByProjectCache = new Cache<scrum.server.project.Project,Set<BlogEntry>>(
             new Cache.Factory<scrum.server.project.Project,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -108,6 +112,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.isProject(value);
         }
@@ -120,6 +125,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<Integer,Set<BlogEntry>> blogEntrysByNumberCache = new Cache<Integer,Set<BlogEntry>>(
             new Cache.Factory<Integer,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -148,6 +154,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.isNumber(value);
         }
@@ -160,6 +167,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<scrum.server.admin.User,Set<BlogEntry>> blogEntrysByAuthorCache = new Cache<scrum.server.admin.User,Set<BlogEntry>>(
             new Cache.Factory<scrum.server.admin.User,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(scrum.server.admin.User author) {
                     return getEntities(new ContainsAuthor(author));
                 }
@@ -188,6 +196,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.containsAuthor(value);
         }
@@ -200,6 +209,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<java.lang.String,Set<BlogEntry>> blogEntrysByTitleCache = new Cache<java.lang.String,Set<BlogEntry>>(
             new Cache.Factory<java.lang.String,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(java.lang.String title) {
                     return getEntities(new IsTitle(title));
                 }
@@ -228,6 +238,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.isTitle(value);
         }
@@ -240,6 +251,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<java.lang.String,Set<BlogEntry>> blogEntrysByTextCache = new Cache<java.lang.String,Set<BlogEntry>>(
             new Cache.Factory<java.lang.String,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(java.lang.String text) {
                     return getEntities(new IsText(text));
                 }
@@ -268,6 +280,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.isText(value);
         }
@@ -280,6 +293,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<BlogEntry>> blogEntrysByDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<BlogEntry>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(ilarkesto.core.time.DateAndTime dateAndTime) {
                     return getEntities(new IsDateAndTime(dateAndTime));
                 }
@@ -308,6 +322,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.isDateAndTime(value);
         }
@@ -320,6 +335,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<scrum.server.release.Release,Set<BlogEntry>> blogEntrysByReleaseCache = new Cache<scrum.server.release.Release,Set<BlogEntry>>(
             new Cache.Factory<scrum.server.release.Release,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(scrum.server.release.Release release) {
                     return getEntities(new ContainsRelease(release));
                 }
@@ -348,6 +364,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return e.containsRelease(value);
         }
@@ -360,6 +377,7 @@ public abstract class GBlogEntryDao
 
     private final Cache<Boolean,Set<BlogEntry>> blogEntrysByPublishedCache = new Cache<Boolean,Set<BlogEntry>>(
             new Cache.Factory<Boolean,Set<BlogEntry>>() {
+                @Override
                 public Set<BlogEntry> create(Boolean published) {
                     return getEntities(new IsPublished(published));
                 }
@@ -377,6 +395,7 @@ public abstract class GBlogEntryDao
             this.value = value;
         }
 
+        @Override
         public boolean test(BlogEntry e) {
             return value == e.isPublished();
         }

@@ -376,9 +376,7 @@ public class ScrumServiceImplTest extends ATest {
         E entity;
         try {
             entity = type.newInstance();
-        } catch (InstantiationException ex) {
-            throw new RuntimeException(ex);
-        } catch (IllegalAccessException ex) {
+        } catch (InstantiationException | IllegalAccessException ex) {
             throw new RuntimeException(ex);
         }
         entity.updateProperties(properties);

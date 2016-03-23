@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GProjectUserConfigDao
             extends ilarkesto.persistence.ADao<ProjectUserConfig> {
 
+    @Override
     public final String getEntityName() {
         return ProjectUserConfig.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return ProjectUserConfig.class;
     }
 
     public Set<ProjectUserConfig> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<ProjectUserConfig>() {
+            @Override
             public boolean test(ProjectUserConfig e) {
                 return Auth.isVisible(e, user);
             }
@@ -97,6 +100,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<scrum.server.project.Project,Set<ProjectUserConfig>> projectUserConfigsByProjectCache = new Cache<scrum.server.project.Project,Set<ProjectUserConfig>>(
             new Cache.Factory<scrum.server.project.Project,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -125,6 +129,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isProject(value);
         }
@@ -137,6 +142,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<scrum.server.admin.User,Set<ProjectUserConfig>> projectUserConfigsByUserCache = new Cache<scrum.server.admin.User,Set<ProjectUserConfig>>(
             new Cache.Factory<scrum.server.admin.User,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(scrum.server.admin.User user) {
                     return getEntities(new IsUser(user));
                 }
@@ -165,6 +171,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isUser(value);
         }
@@ -177,6 +184,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsByColorCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String color) {
                     return getEntities(new IsColor(color));
                 }
@@ -205,6 +213,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isColor(value);
         }
@@ -217,6 +226,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<Boolean,Set<ProjectUserConfig>> projectUserConfigsByReceiveEmailsOnProjectEventsCache = new Cache<Boolean,Set<ProjectUserConfig>>(
             new Cache.Factory<Boolean,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(Boolean receiveEmailsOnProjectEvents) {
                     return getEntities(new IsReceiveEmailsOnProjectEvents(receiveEmailsOnProjectEvents));
                 }
@@ -234,6 +244,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return value == e.isReceiveEmailsOnProjectEvents();
         }
@@ -246,6 +257,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<Integer,Set<ProjectUserConfig>> projectUserConfigsByMisconductsCache = new Cache<Integer,Set<ProjectUserConfig>>(
             new Cache.Factory<Integer,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(Integer misconducts) {
                     return getEntities(new IsMisconducts(misconducts));
                 }
@@ -274,6 +286,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isMisconducts(value);
         }
@@ -286,6 +299,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsByRichtextAutosaveTextCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String richtextAutosaveText) {
                     return getEntities(new IsRichtextAutosaveText(richtextAutosaveText));
                 }
@@ -314,6 +328,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isRichtextAutosaveText(value);
         }
@@ -326,6 +341,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsByRichtextAutosaveFieldCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String richtextAutosaveField) {
                     return getEntities(new IsRichtextAutosaveField(richtextAutosaveField));
                 }
@@ -354,6 +370,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isRichtextAutosaveField(value);
         }
@@ -366,6 +383,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsBySelectedEntitysIdCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String selectedEntitysId) {
                     return getEntities(new ContainsSelectedEntitysId(selectedEntitysId));
                 }
@@ -394,6 +412,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.containsSelectedEntitysId(value);
         }
@@ -406,6 +425,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<Boolean,Set<ProjectUserConfig>> projectUserConfigsByOnlineCache = new Cache<Boolean,Set<ProjectUserConfig>>(
             new Cache.Factory<Boolean,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(Boolean online) {
                     return getEntities(new IsOnline(online));
                 }
@@ -423,6 +443,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return value == e.isOnline();
         }
@@ -435,6 +456,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<ProjectUserConfig>> projectUserConfigsByLastActivityDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<ProjectUserConfig>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(ilarkesto.core.time.DateAndTime lastActivityDateAndTime) {
                     return getEntities(new IsLastActivityDateAndTime(lastActivityDateAndTime));
                 }
@@ -463,6 +485,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isLastActivityDateAndTime(value);
         }
@@ -475,6 +498,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsByPblFilterThemeCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String pblFilterTheme) {
                     return getEntities(new ContainsPblFilterTheme(pblFilterTheme));
                 }
@@ -503,6 +527,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.containsPblFilterTheme(value);
         }
@@ -515,6 +540,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<scrum.server.project.Quality,Set<ProjectUserConfig>> projectUserConfigsByPblFilterQualityCache = new Cache<scrum.server.project.Quality,Set<ProjectUserConfig>>(
             new Cache.Factory<scrum.server.project.Quality,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(scrum.server.project.Quality pblFilterQuality) {
                     return getEntities(new ContainsPblFilterQuality(pblFilterQuality));
                 }
@@ -543,6 +569,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.containsPblFilterQuality(value);
         }
@@ -555,6 +582,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<ilarkesto.core.time.Date,Set<ProjectUserConfig>> projectUserConfigsByPblFilterDateFromCache = new Cache<ilarkesto.core.time.Date,Set<ProjectUserConfig>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(ilarkesto.core.time.Date pblFilterDateFrom) {
                     return getEntities(new IsPblFilterDateFrom(pblFilterDateFrom));
                 }
@@ -583,6 +611,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isPblFilterDateFrom(value);
         }
@@ -595,6 +624,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<ilarkesto.core.time.Date,Set<ProjectUserConfig>> projectUserConfigsByPblFilterDateToCache = new Cache<ilarkesto.core.time.Date,Set<ProjectUserConfig>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(ilarkesto.core.time.Date pblFilterDateTo) {
                     return getEntities(new IsPblFilterDateTo(pblFilterDateTo));
                 }
@@ -623,6 +653,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isPblFilterDateTo(value);
         }
@@ -635,6 +666,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.Float,Set<ProjectUserConfig>> projectUserConfigsByPblFilterEstimationFromCache = new Cache<java.lang.Float,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.Float,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.Float pblFilterEstimationFrom) {
                     return getEntities(new IsPblFilterEstimationFrom(pblFilterEstimationFrom));
                 }
@@ -663,6 +695,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isPblFilterEstimationFrom(value);
         }
@@ -675,6 +708,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.Float,Set<ProjectUserConfig>> projectUserConfigsByPblFilterEstimationToCache = new Cache<java.lang.Float,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.Float,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.Float pblFilterEstimationTo) {
                     return getEntities(new IsPblFilterEstimationTo(pblFilterEstimationTo));
                 }
@@ -703,6 +737,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isPblFilterEstimationTo(value);
         }
@@ -715,6 +750,7 @@ public abstract class GProjectUserConfigDao
 
     private final Cache<java.lang.String,Set<ProjectUserConfig>> projectUserConfigsByPblFilterTextCache = new Cache<java.lang.String,Set<ProjectUserConfig>>(
             new Cache.Factory<java.lang.String,Set<ProjectUserConfig>>() {
+                @Override
                 public Set<ProjectUserConfig> create(java.lang.String pblFilterText) {
                     return getEntities(new IsPblFilterText(pblFilterText));
                 }
@@ -743,6 +779,7 @@ public abstract class GProjectUserConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectUserConfig e) {
             return e.isPblFilterText(value);
         }

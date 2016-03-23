@@ -26,7 +26,7 @@ import scrum.server.WebSession;
 
 public class StartServlet extends AKunagiServlet {
 
-	private static Log log = Log.get(StartServlet.class);
+	private static final Log log = Log.get(StartServlet.class);
 
 	private static boolean first = true;
 

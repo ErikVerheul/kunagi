@@ -28,10 +28,12 @@ public abstract class GProject
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.project.ProjectDao getDao() {
         return projectDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -82,6 +84,7 @@ public abstract class GProject
         properties.put("releasingInfo", this.releasingInfo);
     }
 
+    @Override
     public int compareTo(Project other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -159,6 +162,7 @@ public abstract class GProject
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -2008,6 +2012,7 @@ public abstract class GProject
         setReleasingInfo((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -2058,6 +2063,7 @@ public abstract class GProject
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         if (this.participantsIds == null) this.participantsIds = new java.util.HashSet<String>();
@@ -2078,6 +2084,7 @@ public abstract class GProject
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (this.participantsIds == null) this.participantsIds = new java.util.HashSet<String>();

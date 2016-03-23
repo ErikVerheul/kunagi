@@ -28,10 +28,12 @@ public abstract class GBlogEntry
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.pr.BlogEntryDao getDao() {
         return blogEntryDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -48,6 +50,7 @@ public abstract class GBlogEntry
         properties.put("published", this.published);
     }
 
+    @Override
     public int compareTo(BlogEntry other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -61,6 +64,7 @@ public abstract class GBlogEntry
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getTitle(), key)) return true;
@@ -468,6 +472,7 @@ public abstract class GBlogEntry
         setPublished((Boolean)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -484,6 +489,7 @@ public abstract class GBlogEntry
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -495,6 +501,7 @@ public abstract class GBlogEntry
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

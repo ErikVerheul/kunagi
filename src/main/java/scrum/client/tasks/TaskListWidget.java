@@ -34,11 +34,11 @@ import com.google.gwt.user.client.ui.Widget;
 public class TaskListWidget extends AScrumWidget {
 
 	private BlockListWidget<Task> list;
-	private BlockListDropAction<Task> dropAction;
+	private final BlockListDropAction<Task> dropAction;
 
-	private TaskBlockContainer container;
-	private Requirement requirement;
-	private boolean createTaskButton;
+	private final TaskBlockContainer container;
+	private final Requirement requirement;
+	private final boolean createTaskButton;
 
 	public TaskListWidget(Requirement requirement, TaskBlockContainer container, BlockListDropAction<Task> dropAction,
 			boolean createTaskButton) {

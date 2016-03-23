@@ -28,10 +28,12 @@ public abstract class GIssue
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.issues.IssueDao getDao() {
         return issueDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -62,6 +64,7 @@ public abstract class GIssue
         properties.put("themes", this.themes);
     }
 
+    @Override
     public int compareTo(Issue other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -79,6 +82,7 @@ public abstract class GIssue
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -1084,6 +1088,7 @@ public abstract class GIssue
         setThemes((java.util.List<java.lang.String>) value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -1114,6 +1119,7 @@ public abstract class GIssue
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -1129,6 +1135,7 @@ public abstract class GIssue
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

@@ -29,7 +29,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class SprintHistorySprintWidget extends AScrumWidget {
 
-	private Sprint sprint;
+	private final Sprint sprint;
 	private BlockListWidget<Requirement> requirementList;
 	private ChangeIndicator changeIndicator = new ChangeIndicator();
 

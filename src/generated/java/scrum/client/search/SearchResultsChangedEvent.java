@@ -7,6 +7,7 @@ public class SearchResultsChangedEvent extends ilarkesto.core.event.AEvent {
     public  SearchResultsChangedEvent() {
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof SearchResultsChangedHandler) {
             log.debug("    " + handler.getClass().getName() + ".onSearchResultsChanged(event)");

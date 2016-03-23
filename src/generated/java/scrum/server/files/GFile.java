@@ -28,10 +28,12 @@ public abstract class GFile
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.files.FileDao getDao() {
         return fileDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -46,6 +48,7 @@ public abstract class GFile
         properties.put("note", this.note);
     }
 
+    @Override
     public int compareTo(File other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -59,6 +62,7 @@ public abstract class GFile
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getFilename(), key)) return true;
@@ -293,6 +297,7 @@ public abstract class GFile
         setNote((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -307,6 +312,7 @@ public abstract class GFile
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -314,6 +320,7 @@ public abstract class GFile
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

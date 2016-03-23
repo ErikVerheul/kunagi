@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSystemConfigDao
             extends ilarkesto.persistence.ADao<SystemConfig> {
 
+    @Override
     public final String getEntityName() {
         return SystemConfig.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return SystemConfig.class;
     }
 
     public Set<SystemConfig> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<SystemConfig>() {
+            @Override
             public boolean test(SystemConfig e) {
                 return Auth.isVisible(e, user);
             }
@@ -116,6 +119,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByUrlCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String url) {
                     return getEntities(new IsUrl(url));
                 }
@@ -144,6 +148,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isUrl(value);
         }
@@ -156,6 +161,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByAdminEmailCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String adminEmail) {
                     return getEntities(new IsAdminEmail(adminEmail));
                 }
@@ -184,6 +190,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isAdminEmail(value);
         }
@@ -196,6 +203,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByGoogleAnalyticsIdCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String googleAnalyticsId) {
                     return getEntities(new IsGoogleAnalyticsId(googleAnalyticsId));
                 }
@@ -224,6 +232,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isGoogleAnalyticsId(value);
         }
@@ -236,6 +245,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsBySmtpServerCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String smtpServer) {
                     return getEntities(new IsSmtpServer(smtpServer));
                 }
@@ -264,6 +274,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSmtpServer(value);
         }
@@ -276,6 +287,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.Integer,Set<SystemConfig>> systemConfigsBySmtpPortCache = new Cache<java.lang.Integer,Set<SystemConfig>>(
             new Cache.Factory<java.lang.Integer,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.Integer smtpPort) {
                     return getEntities(new IsSmtpPort(smtpPort));
                 }
@@ -304,6 +316,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSmtpPort(value);
         }
@@ -316,6 +329,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsBySmtpTlsCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean smtpTls) {
                     return getEntities(new IsSmtpTls(smtpTls));
                 }
@@ -333,6 +347,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isSmtpTls();
         }
@@ -345,6 +360,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsBySmtpUserCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String smtpUser) {
                     return getEntities(new IsSmtpUser(smtpUser));
                 }
@@ -373,6 +389,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSmtpUser(value);
         }
@@ -385,6 +402,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsBySmtpPasswordCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String smtpPassword) {
                     return getEntities(new IsSmtpPassword(smtpPassword));
                 }
@@ -413,6 +431,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSmtpPassword(value);
         }
@@ -425,6 +444,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsBySmtpFromCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String smtpFrom) {
                     return getEntities(new IsSmtpFrom(smtpFrom));
                 }
@@ -453,6 +473,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSmtpFrom(value);
         }
@@ -465,6 +486,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByInstanceNameCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String instanceName) {
                     return getEntities(new IsInstanceName(instanceName));
                 }
@@ -493,6 +515,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isInstanceName(value);
         }
@@ -505,6 +528,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLoginPageLogoUrlCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String loginPageLogoUrl) {
                     return getEntities(new IsLoginPageLogoUrl(loginPageLogoUrl));
                 }
@@ -533,6 +557,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLoginPageLogoUrl(value);
         }
@@ -545,6 +570,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLoginPageMessageCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String loginPageMessage) {
                     return getEntities(new IsLoginPageMessage(loginPageMessage));
                 }
@@ -573,6 +599,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLoginPageMessage(value);
         }
@@ -585,6 +612,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByRegisterPageMessageCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String registerPageMessage) {
                     return getEntities(new IsRegisterPageMessage(registerPageMessage));
                 }
@@ -613,6 +641,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isRegisterPageMessage(value);
         }
@@ -625,6 +654,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByAboutPageMessageCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String aboutPageMessage) {
                     return getEntities(new IsAboutPageMessage(aboutPageMessage));
                 }
@@ -653,6 +683,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isAboutPageMessage(value);
         }
@@ -665,6 +696,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByUserEmailMandatoryCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean userEmailMandatory) {
                     return getEntities(new IsUserEmailMandatory(userEmailMandatory));
                 }
@@ -682,6 +714,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isUserEmailMandatory();
         }
@@ -694,6 +727,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByRegistrationDisabledCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean registrationDisabled) {
                     return getEntities(new IsRegistrationDisabled(registrationDisabled));
                 }
@@ -711,6 +745,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isRegistrationDisabled();
         }
@@ -723,6 +758,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByProjectCreationDisabledCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean projectCreationDisabled) {
                     return getEntities(new IsProjectCreationDisabled(projectCreationDisabled));
                 }
@@ -740,6 +776,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isProjectCreationDisabled();
         }
@@ -752,6 +789,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByDefaultUserPasswordCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String defaultUserPassword) {
                     return getEntities(new IsDefaultUserPassword(defaultUserPassword));
                 }
@@ -780,6 +818,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isDefaultUserPassword(value);
         }
@@ -792,6 +831,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByOpenIdDisabledCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean openIdDisabled) {
                     return getEntities(new IsOpenIdDisabled(openIdDisabled));
                 }
@@ -809,6 +849,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isOpenIdDisabled();
         }
@@ -821,6 +862,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByOpenIdDomainsCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String openIdDomains) {
                     return getEntities(new IsOpenIdDomains(openIdDomains));
                 }
@@ -849,6 +891,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isOpenIdDomains(value);
         }
@@ -861,6 +904,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByVersionCheckEnabledCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean versionCheckEnabled) {
                     return getEntities(new IsVersionCheckEnabled(versionCheckEnabled));
                 }
@@ -878,6 +922,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isVersionCheckEnabled();
         }
@@ -890,6 +935,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<Boolean,Set<SystemConfig>> systemConfigsByLdapEnabledCache = new Cache<Boolean,Set<SystemConfig>>(
             new Cache.Factory<Boolean,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(Boolean ldapEnabled) {
                     return getEntities(new IsLdapEnabled(ldapEnabled));
                 }
@@ -907,6 +953,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return value == e.isLdapEnabled();
         }
@@ -919,6 +966,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLdapUrlCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String ldapUrl) {
                     return getEntities(new IsLdapUrl(ldapUrl));
                 }
@@ -947,6 +995,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLdapUrl(value);
         }
@@ -959,6 +1008,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLdapUserCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String ldapUser) {
                     return getEntities(new IsLdapUser(ldapUser));
                 }
@@ -987,6 +1037,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLdapUser(value);
         }
@@ -999,6 +1050,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLdapPasswordCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String ldapPassword) {
                     return getEntities(new IsLdapPassword(ldapPassword));
                 }
@@ -1027,6 +1079,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLdapPassword(value);
         }
@@ -1039,6 +1092,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLdapBaseDnCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String ldapBaseDn) {
                     return getEntities(new IsLdapBaseDn(ldapBaseDn));
                 }
@@ -1067,6 +1121,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLdapBaseDn(value);
         }
@@ -1079,6 +1134,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsByLdapUserFilterRegexCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String ldapUserFilterRegex) {
                     return getEntities(new IsLdapUserFilterRegex(ldapUserFilterRegex));
                 }
@@ -1107,6 +1163,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isLdapUserFilterRegex(value);
         }
@@ -1119,6 +1176,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.Integer,Set<SystemConfig>> systemConfigsByMaxFileSizeCache = new Cache<java.lang.Integer,Set<SystemConfig>>(
             new Cache.Factory<java.lang.Integer,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.Integer maxFileSize) {
                     return getEntities(new IsMaxFileSize(maxFileSize));
                 }
@@ -1147,6 +1205,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isMaxFileSize(value);
         }
@@ -1159,6 +1218,7 @@ public abstract class GSystemConfigDao
 
     private final Cache<java.lang.String,Set<SystemConfig>> systemConfigsBySubscriptionKeySeedCache = new Cache<java.lang.String,Set<SystemConfig>>(
             new Cache.Factory<java.lang.String,Set<SystemConfig>>() {
+                @Override
                 public Set<SystemConfig> create(java.lang.String subscriptionKeySeed) {
                     return getEntities(new IsSubscriptionKeySeed(subscriptionKeySeed));
                 }
@@ -1187,6 +1247,7 @@ public abstract class GSystemConfigDao
             this.value = value;
         }
 
+        @Override
         public boolean test(SystemConfig e) {
             return e.isSubscriptionKeySeed(value);
         }

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GSprintDao
             extends ilarkesto.persistence.ADao<Sprint> {
 
+    @Override
     public final String getEntityName() {
         return Sprint.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Sprint.class;
     }
 
     public Set<Sprint> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Sprint>() {
+            @Override
             public boolean test(Sprint e) {
                 return Auth.isVisible(e, user);
             }
@@ -97,6 +100,7 @@ public abstract class GSprintDao
 
     private final Cache<Integer,Set<Sprint>> sprintsByNumberCache = new Cache<Integer,Set<Sprint>>(
             new Cache.Factory<Integer,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -125,6 +129,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isNumber(value);
         }
@@ -137,6 +142,7 @@ public abstract class GSprintDao
 
     private final Cache<scrum.server.project.Project,Set<Sprint>> sprintsByProjectCache = new Cache<scrum.server.project.Project,Set<Sprint>>(
             new Cache.Factory<scrum.server.project.Project,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -165,6 +171,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isProject(value);
         }
@@ -177,6 +184,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByLabelCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -205,6 +213,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isLabel(value);
         }
@@ -217,6 +226,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByGoalCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String goal) {
                     return getEntities(new IsGoal(goal));
                 }
@@ -245,6 +255,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isGoal(value);
         }
@@ -257,6 +268,7 @@ public abstract class GSprintDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Sprint>> sprintsByBeginCache = new Cache<ilarkesto.core.time.Date,Set<Sprint>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(ilarkesto.core.time.Date begin) {
                     return getEntities(new IsBegin(begin));
                 }
@@ -285,6 +297,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isBegin(value);
         }
@@ -297,6 +310,7 @@ public abstract class GSprintDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Sprint>> sprintsByEndCache = new Cache<ilarkesto.core.time.Date,Set<Sprint>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(ilarkesto.core.time.Date end) {
                     return getEntities(new IsEnd(end));
                 }
@@ -325,6 +339,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isEnd(value);
         }
@@ -337,6 +352,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.Float,Set<Sprint>> sprintsByVelocityCache = new Cache<java.lang.Float,Set<Sprint>>(
             new Cache.Factory<java.lang.Float,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.Float velocity) {
                     return getEntities(new IsVelocity(velocity));
                 }
@@ -365,6 +381,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isVelocity(value);
         }
@@ -377,6 +394,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByCompletedRequirementsDataCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String completedRequirementsData) {
                     return getEntities(new IsCompletedRequirementsData(completedRequirementsData));
                 }
@@ -405,6 +423,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isCompletedRequirementsData(value);
         }
@@ -417,6 +436,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByIncompletedRequirementsDataCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String incompletedRequirementsData) {
                     return getEntities(new IsIncompletedRequirementsData(incompletedRequirementsData));
                 }
@@ -445,6 +465,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isIncompletedRequirementsData(value);
         }
@@ -457,6 +478,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByPlanningNoteCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String planningNote) {
                     return getEntities(new IsPlanningNote(planningNote));
                 }
@@ -485,6 +507,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isPlanningNote(value);
         }
@@ -497,6 +520,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByReviewNoteCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String reviewNote) {
                     return getEntities(new IsReviewNote(reviewNote));
                 }
@@ -525,6 +549,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isReviewNote(value);
         }
@@ -537,6 +562,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByRetrospectiveNoteCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String retrospectiveNote) {
                     return getEntities(new IsRetrospectiveNote(retrospectiveNote));
                 }
@@ -565,6 +591,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.isRetrospectiveNote(value);
         }
@@ -577,6 +604,7 @@ public abstract class GSprintDao
 
     private final Cache<java.lang.String,Set<Sprint>> sprintsByRequirementsOrderIdCache = new Cache<java.lang.String,Set<Sprint>>(
             new Cache.Factory<java.lang.String,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(java.lang.String requirementsOrderId) {
                     return getEntities(new ContainsRequirementsOrderId(requirementsOrderId));
                 }
@@ -605,6 +633,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.containsRequirementsOrderId(value);
         }
@@ -617,6 +646,7 @@ public abstract class GSprintDao
 
     private final Cache<scrum.server.admin.User,Set<Sprint>> sprintsByProductOwnerCache = new Cache<scrum.server.admin.User,Set<Sprint>>(
             new Cache.Factory<scrum.server.admin.User,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(scrum.server.admin.User productOwner) {
                     return getEntities(new ContainsProductOwner(productOwner));
                 }
@@ -645,6 +675,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.containsProductOwner(value);
         }
@@ -657,6 +688,7 @@ public abstract class GSprintDao
 
     private final Cache<scrum.server.admin.User,Set<Sprint>> sprintsByScrumMasterCache = new Cache<scrum.server.admin.User,Set<Sprint>>(
             new Cache.Factory<scrum.server.admin.User,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(scrum.server.admin.User scrumMaster) {
                     return getEntities(new ContainsScrumMaster(scrumMaster));
                 }
@@ -685,6 +717,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.containsScrumMaster(value);
         }
@@ -697,6 +730,7 @@ public abstract class GSprintDao
 
     private final Cache<scrum.server.admin.User,Set<Sprint>> sprintsByTeamMemberCache = new Cache<scrum.server.admin.User,Set<Sprint>>(
             new Cache.Factory<scrum.server.admin.User,Set<Sprint>>() {
+                @Override
                 public Set<Sprint> create(scrum.server.admin.User teamMember) {
                     return getEntities(new ContainsTeamMember(teamMember));
                 }
@@ -725,6 +759,7 @@ public abstract class GSprintDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Sprint e) {
             return e.containsTeamMember(value);
         }

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GUserDao
             extends ilarkesto.auth.AUserDao<User> {
 
+    @Override
     public final String getEntityName() {
         return User.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return User.class;
     }
 
     public Set<User> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<User>() {
+            @Override
             public boolean test(User e) {
                 return Auth.isVisible(e, user);
             }
@@ -97,6 +100,7 @@ public abstract class GUserDao
     // - name
     // -----------------------------------------------------------
 
+    @Override
     public final User getUserByName(java.lang.String name) {
         return getEntity(new IsName(name));
     }
@@ -120,6 +124,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isName(value);
         }
@@ -132,6 +137,7 @@ public abstract class GUserDao
 
     private final Cache<java.lang.String,Set<User>> usersByPublicNameCache = new Cache<java.lang.String,Set<User>>(
             new Cache.Factory<java.lang.String,Set<User>>() {
+                @Override
                 public Set<User> create(java.lang.String publicName) {
                     return getEntities(new IsPublicName(publicName));
                 }
@@ -160,6 +166,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isPublicName(value);
         }
@@ -172,6 +179,7 @@ public abstract class GUserDao
 
     private final Cache<java.lang.String,Set<User>> usersByFullNameCache = new Cache<java.lang.String,Set<User>>(
             new Cache.Factory<java.lang.String,Set<User>>() {
+                @Override
                 public Set<User> create(java.lang.String fullName) {
                     return getEntities(new IsFullName(fullName));
                 }
@@ -200,6 +208,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isFullName(value);
         }
@@ -212,6 +221,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByAdminCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean admin) {
                     return getEntities(new IsAdmin(admin));
                 }
@@ -229,6 +239,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isAdmin();
         }
@@ -241,6 +252,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByEmailVerifiedCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean emailVerified) {
                     return getEntities(new IsEmailVerified(emailVerified));
                 }
@@ -258,6 +270,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isEmailVerified();
         }
@@ -291,6 +304,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isEmail(value);
         }
@@ -303,6 +317,7 @@ public abstract class GUserDao
 
     private final Cache<scrum.server.project.Project,Set<User>> usersByCurrentProjectCache = new Cache<scrum.server.project.Project,Set<User>>(
             new Cache.Factory<scrum.server.project.Project,Set<User>>() {
+                @Override
                 public Set<User> create(scrum.server.project.Project currentProject) {
                     return getEntities(new IsCurrentProject(currentProject));
                 }
@@ -331,6 +346,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isCurrentProject(value);
         }
@@ -343,6 +359,7 @@ public abstract class GUserDao
 
     private final Cache<java.lang.String,Set<User>> usersByColorCache = new Cache<java.lang.String,Set<User>>(
             new Cache.Factory<java.lang.String,Set<User>>() {
+                @Override
                 public Set<User> create(java.lang.String color) {
                     return getEntities(new IsColor(color));
                 }
@@ -371,6 +388,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isColor(value);
         }
@@ -383,6 +401,7 @@ public abstract class GUserDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<User>> usersByLastLoginDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<User>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<User>>() {
+                @Override
                 public Set<User> create(ilarkesto.core.time.DateAndTime lastLoginDateAndTime) {
                     return getEntities(new IsLastLoginDateAndTime(lastLoginDateAndTime));
                 }
@@ -411,6 +430,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isLastLoginDateAndTime(value);
         }
@@ -423,6 +443,7 @@ public abstract class GUserDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<User>> usersByRegistrationDateAndTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<User>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<User>>() {
+                @Override
                 public Set<User> create(ilarkesto.core.time.DateAndTime registrationDateAndTime) {
                     return getEntities(new IsRegistrationDateAndTime(registrationDateAndTime));
                 }
@@ -451,6 +472,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isRegistrationDateAndTime(value);
         }
@@ -463,6 +485,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByDisabledCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean disabled) {
                     return getEntities(new IsDisabled(disabled));
                 }
@@ -480,6 +503,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isDisabled();
         }
@@ -492,6 +516,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideBlogCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideBlog) {
                     return getEntities(new IsHideUserGuideBlog(hideUserGuideBlog));
                 }
@@ -509,6 +534,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideBlog();
         }
@@ -521,6 +547,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideCalendarCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideCalendar) {
                     return getEntities(new IsHideUserGuideCalendar(hideUserGuideCalendar));
                 }
@@ -538,6 +565,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideCalendar();
         }
@@ -550,6 +578,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideFilesCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideFiles) {
                     return getEntities(new IsHideUserGuideFiles(hideUserGuideFiles));
                 }
@@ -567,6 +596,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideFiles();
         }
@@ -579,6 +609,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideForumCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideForum) {
                     return getEntities(new IsHideUserGuideForum(hideUserGuideForum));
                 }
@@ -596,6 +627,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideForum();
         }
@@ -608,6 +640,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideImpedimentsCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideImpediments) {
                     return getEntities(new IsHideUserGuideImpediments(hideUserGuideImpediments));
                 }
@@ -625,6 +658,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideImpediments();
         }
@@ -637,6 +671,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideIssuesCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideIssues) {
                     return getEntities(new IsHideUserGuideIssues(hideUserGuideIssues));
                 }
@@ -654,6 +689,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideIssues();
         }
@@ -666,6 +702,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideJournalCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideJournal) {
                     return getEntities(new IsHideUserGuideJournal(hideUserGuideJournal));
                 }
@@ -683,6 +720,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideJournal();
         }
@@ -695,6 +733,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideNextSprintCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideNextSprint) {
                     return getEntities(new IsHideUserGuideNextSprint(hideUserGuideNextSprint));
                 }
@@ -712,6 +751,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideNextSprint();
         }
@@ -724,6 +764,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideProductBacklogCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideProductBacklog) {
                     return getEntities(new IsHideUserGuideProductBacklog(hideUserGuideProductBacklog));
                 }
@@ -741,6 +782,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideProductBacklog();
         }
@@ -753,6 +795,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideCourtroomCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideCourtroom) {
                     return getEntities(new IsHideUserGuideCourtroom(hideUserGuideCourtroom));
                 }
@@ -770,6 +813,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideCourtroom();
         }
@@ -782,6 +826,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideQualityBacklogCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideQualityBacklog) {
                     return getEntities(new IsHideUserGuideQualityBacklog(hideUserGuideQualityBacklog));
                 }
@@ -799,6 +844,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideQualityBacklog();
         }
@@ -811,6 +857,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideReleasesCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideReleases) {
                     return getEntities(new IsHideUserGuideReleases(hideUserGuideReleases));
                 }
@@ -828,6 +875,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideReleases();
         }
@@ -840,6 +888,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideRisksCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideRisks) {
                     return getEntities(new IsHideUserGuideRisks(hideUserGuideRisks));
                 }
@@ -857,6 +906,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideRisks();
         }
@@ -869,6 +919,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideSprintBacklogCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideSprintBacklog) {
                     return getEntities(new IsHideUserGuideSprintBacklog(hideUserGuideSprintBacklog));
                 }
@@ -886,6 +937,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideSprintBacklog();
         }
@@ -898,6 +950,7 @@ public abstract class GUserDao
 
     private final Cache<Boolean,Set<User>> usersByHideUserGuideWhiteboardCache = new Cache<Boolean,Set<User>>(
             new Cache.Factory<Boolean,Set<User>>() {
+                @Override
                 public Set<User> create(Boolean hideUserGuideWhiteboard) {
                     return getEntities(new IsHideUserGuideWhiteboard(hideUserGuideWhiteboard));
                 }
@@ -915,6 +968,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return value == e.isHideUserGuideWhiteboard();
         }
@@ -948,6 +1002,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isLoginToken(value);
         }
@@ -981,6 +1036,7 @@ public abstract class GUserDao
             this.value = value;
         }
 
+        @Override
         public boolean test(User e) {
             return e.isOpenId(value);
         }

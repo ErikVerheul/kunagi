@@ -30,6 +30,7 @@ public class RequirementEstimationVoteDao extends GRequirementEstimationVoteDao 
 	public RequirementEstimationVote getRequirementEstimationVoteByUser(final Requirement requirement, final User user) {
 		return getEntity(new Predicate<RequirementEstimationVote>() {
 
+                        @Override
 			public boolean test(RequirementEstimationVote vote) {
 				return vote.isRequirement(requirement) && vote.isUser(user);
 			}
@@ -40,6 +41,7 @@ public class RequirementEstimationVoteDao extends GRequirementEstimationVoteDao 
 			final User user) {
 		return getEntities(new Predicate<RequirementEstimationVote>() {
 
+                        @Override
 			public boolean test(RequirementEstimationVote vote) {
 				return vote.isRequirement(requirement) && vote.isUser(user);
 			}

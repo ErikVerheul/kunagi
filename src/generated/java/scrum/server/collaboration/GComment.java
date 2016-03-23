@@ -28,10 +28,12 @@ public abstract class GComment
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.collaboration.CommentDao getDao() {
         return commentDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -48,6 +50,7 @@ public abstract class GComment
         properties.put("dateAndTime", this.dateAndTime == null ? null : this.dateAndTime.toString());
     }
 
+    @Override
     public int compareTo(Comment other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -61,6 +64,7 @@ public abstract class GComment
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getText(), key)) return true;
@@ -375,6 +379,7 @@ public abstract class GComment
         setDateAndTime((ilarkesto.core.time.DateAndTime)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -391,6 +396,7 @@ public abstract class GComment
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadParentReference(entityId);
@@ -399,6 +405,7 @@ public abstract class GComment
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isParentSet()) {

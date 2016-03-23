@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GFileDao
             extends ilarkesto.persistence.ADao<File> {
 
+    @Override
     public final String getEntityName() {
         return File.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return File.class;
     }
 
     public Set<File> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<File>() {
+            @Override
             public boolean test(File e) {
                 return Auth.isVisible(e, user);
             }
@@ -77,6 +80,7 @@ public abstract class GFileDao
 
     private final Cache<scrum.server.project.Project,Set<File>> filesByProjectCache = new Cache<scrum.server.project.Project,Set<File>>(
             new Cache.Factory<scrum.server.project.Project,Set<File>>() {
+                @Override
                 public Set<File> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -105,6 +109,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isProject(value);
         }
@@ -117,6 +122,7 @@ public abstract class GFileDao
 
     private final Cache<java.lang.String,Set<File>> filesByFilenameCache = new Cache<java.lang.String,Set<File>>(
             new Cache.Factory<java.lang.String,Set<File>>() {
+                @Override
                 public Set<File> create(java.lang.String filename) {
                     return getEntities(new IsFilename(filename));
                 }
@@ -145,6 +151,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isFilename(value);
         }
@@ -157,6 +164,7 @@ public abstract class GFileDao
 
     private final Cache<ilarkesto.core.time.DateAndTime,Set<File>> filesByUploadTimeCache = new Cache<ilarkesto.core.time.DateAndTime,Set<File>>(
             new Cache.Factory<ilarkesto.core.time.DateAndTime,Set<File>>() {
+                @Override
                 public Set<File> create(ilarkesto.core.time.DateAndTime uploadTime) {
                     return getEntities(new IsUploadTime(uploadTime));
                 }
@@ -185,6 +193,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isUploadTime(value);
         }
@@ -197,6 +206,7 @@ public abstract class GFileDao
 
     private final Cache<java.lang.String,Set<File>> filesByLabelCache = new Cache<java.lang.String,Set<File>>(
             new Cache.Factory<java.lang.String,Set<File>>() {
+                @Override
                 public Set<File> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -225,6 +235,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isLabel(value);
         }
@@ -237,6 +248,7 @@ public abstract class GFileDao
 
     private final Cache<Integer,Set<File>> filesByNumberCache = new Cache<Integer,Set<File>>(
             new Cache.Factory<Integer,Set<File>>() {
+                @Override
                 public Set<File> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -265,6 +277,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isNumber(value);
         }
@@ -277,6 +290,7 @@ public abstract class GFileDao
 
     private final Cache<java.lang.String,Set<File>> filesByNoteCache = new Cache<java.lang.String,Set<File>>(
             new Cache.Factory<java.lang.String,Set<File>>() {
+                @Override
                 public Set<File> create(java.lang.String note) {
                     return getEntities(new IsNote(note));
                 }
@@ -305,6 +319,7 @@ public abstract class GFileDao
             this.value = value;
         }
 
+        @Override
         public boolean test(File e) {
             return e.isNote(value);
         }

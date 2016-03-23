@@ -28,10 +28,12 @@ public abstract class GSprint
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.sprint.SprintDao getDao() {
         return sprintDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -56,6 +58,7 @@ public abstract class GSprint
         properties.put("teamMembersIds", this.teamMembersIds);
     }
 
+    @Override
     public int compareTo(Sprint other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -101,6 +104,7 @@ public abstract class GSprint
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -915,6 +919,7 @@ public abstract class GSprint
         setTeamMembers((java.util.Set) userDao.getByIdsAsSet(ids));
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -939,6 +944,7 @@ public abstract class GSprint
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -953,6 +959,7 @@ public abstract class GSprint
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

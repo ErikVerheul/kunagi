@@ -28,10 +28,12 @@ public abstract class GRisk
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.risks.RiskDao getDao() {
         return riskDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -48,6 +50,7 @@ public abstract class GRisk
         properties.put("impact", this.impact);
     }
 
+    @Override
     public int compareTo(Risk other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -61,6 +64,7 @@ public abstract class GRisk
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -356,6 +360,7 @@ public abstract class GRisk
         setImpact((Integer)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -372,6 +377,7 @@ public abstract class GRisk
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -379,6 +385,7 @@ public abstract class GRisk
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GQualityDao
             extends ilarkesto.persistence.ADao<Quality> {
 
+    @Override
     public final String getEntityName() {
         return Quality.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Quality.class;
     }
 
     public Set<Quality> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Quality>() {
+            @Override
             public boolean test(Quality e) {
                 return Auth.isVisible(e, user);
             }
@@ -75,6 +78,7 @@ public abstract class GQualityDao
 
     private final Cache<scrum.server.project.Project,Set<Quality>> qualitysByProjectCache = new Cache<scrum.server.project.Project,Set<Quality>>(
             new Cache.Factory<scrum.server.project.Project,Set<Quality>>() {
+                @Override
                 public Set<Quality> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -103,6 +107,7 @@ public abstract class GQualityDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Quality e) {
             return e.isProject(value);
         }
@@ -115,6 +120,7 @@ public abstract class GQualityDao
 
     private final Cache<Integer,Set<Quality>> qualitysByNumberCache = new Cache<Integer,Set<Quality>>(
             new Cache.Factory<Integer,Set<Quality>>() {
+                @Override
                 public Set<Quality> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -143,6 +149,7 @@ public abstract class GQualityDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Quality e) {
             return e.isNumber(value);
         }
@@ -155,6 +162,7 @@ public abstract class GQualityDao
 
     private final Cache<java.lang.String,Set<Quality>> qualitysByLabelCache = new Cache<java.lang.String,Set<Quality>>(
             new Cache.Factory<java.lang.String,Set<Quality>>() {
+                @Override
                 public Set<Quality> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -183,6 +191,7 @@ public abstract class GQualityDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Quality e) {
             return e.isLabel(value);
         }
@@ -195,6 +204,7 @@ public abstract class GQualityDao
 
     private final Cache<java.lang.String,Set<Quality>> qualitysByDescriptionCache = new Cache<java.lang.String,Set<Quality>>(
             new Cache.Factory<java.lang.String,Set<Quality>>() {
+                @Override
                 public Set<Quality> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -223,6 +233,7 @@ public abstract class GQualityDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Quality e) {
             return e.isDescription(value);
         }
@@ -235,6 +246,7 @@ public abstract class GQualityDao
 
     private final Cache<java.lang.String,Set<Quality>> qualitysByTestDescriptionCache = new Cache<java.lang.String,Set<Quality>>(
             new Cache.Factory<java.lang.String,Set<Quality>>() {
+                @Override
                 public Set<Quality> create(java.lang.String testDescription) {
                     return getEntities(new IsTestDescription(testDescription));
                 }
@@ -263,6 +275,7 @@ public abstract class GQualityDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Quality e) {
             return e.isTestDescription(value);
         }

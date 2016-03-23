@@ -13,6 +13,7 @@ public class ChangePropertiesServiceCall extends scrum.client.core.AServiceCall 
         this.properties = properties;
     }
 
+    @Override
     public void execute(Runnable returnHandler) {
         serviceCaller.onServiceCall(this);
         serviceCaller.getService().changeProperties(serviceCaller.getConversationNumber(), entityId, properties, new DefaultCallback(this, returnHandler));

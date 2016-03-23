@@ -26,6 +26,7 @@ public abstract class ListPredicate<G> implements ElementPredicate<G> {
 		setEnabled(enabled);
 	}
 
+        @Override
 	public boolean contains(G element) {
 		if (!isEnabled()) return false;
 		return test(element);

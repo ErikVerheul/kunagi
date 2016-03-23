@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-	version="2.4">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
 
-	<display-name>kunagi</display-name>
+    <display-name>kunagi</display-name>
 
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
     <context-param>
         <param-name>maxSize</param-name>
@@ -25,7 +25,7 @@
     <servlet>
         <servlet-name>start</servlet-name>
         <servlet-class>scrum.server.common.StartServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+        <load-on-startup>1</load-on-startup>
     </servlet>      
     <servlet-mapping>
         <servlet-name>start</servlet-name>
@@ -87,16 +87,16 @@
         <url-pattern>/backup</url-pattern>
     </servlet-mapping>
 
-	<!-- main communication service -->
-	<servlet>
-		<servlet-name>scrum</servlet-name>
-		<servlet-class>scrum.server.ScrumServiceImpl</servlet-class>
+    <!-- main communication service -->
+    <servlet>
+        <servlet-name>scrum</servlet-name>
+        <servlet-class>scrum.server.ScrumServiceImpl</servlet-class>
         <load-on-startup>2</load-on-startup>
-	</servlet>	
-	<servlet-mapping>
-		<servlet-name>scrum</servlet-name>
-		<url-pattern>/scrum.ScrumGwtApplication/scrum</url-pattern>
-	</servlet-mapping>
+    </servlet>	
+    <servlet-mapping>
+        <servlet-name>scrum</servlet-name>
+        <url-pattern>/scrum.ScrumGwtApplication/scrum</url-pattern>
+    </servlet-mapping>
 
     <!-- css -->
     <servlet>
@@ -142,16 +142,16 @@
         <url-pattern>/scrum.ScrumGwtApplication/backupDownload.zip</url-pattern>
     </servlet-mapping>
 
-	<!-- sprint burndown chart -->
-	<servlet>
-		<servlet-name>sprintBurndownChart</servlet-name>
-		<servlet-class>scrum.server.sprint.SprintBurndownChartServlet</servlet-class>
+    <!-- sprint burndown chart -->
+    <servlet>
+        <servlet-name>sprintBurndownChart</servlet-name>
+        <servlet-class>scrum.server.sprint.SprintBurndownChartServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
-	</servlet>		
-	<servlet-mapping>
-		<servlet-name>sprintBurndownChart</servlet-name>
-		<url-pattern>/scrum.ScrumGwtApplication/sprintBurndownChart.png</url-pattern>
-	</servlet-mapping>
+    </servlet>		
+    <servlet-mapping>
+        <servlet-name>sprintBurndownChart</servlet-name>
+        <url-pattern>/scrum.ScrumGwtApplication/sprintBurndownChart.png</url-pattern>
+    </servlet-mapping>
 
     <!-- sprint report -->
     <servlet>

@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ItemList extends AWikiElement {
 
-	private List<Item> items = new ArrayList<Item>();
+	private final List<Item> items = new ArrayList<Item>();
 	boolean ordered;
 	private int leadingSpacesLength;
 

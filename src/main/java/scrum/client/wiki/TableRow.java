@@ -19,7 +19,7 @@ import java.util.List;
 
 public class TableRow extends AWikiElement {
 
-	private List<TableCell> cells = new ArrayList<TableCell>();
+	private final List<TableCell> cells = new ArrayList<TableCell>();
 
 	@Override
 	String toHtml(HtmlContext context) {

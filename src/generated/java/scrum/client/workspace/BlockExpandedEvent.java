@@ -14,6 +14,7 @@ public class BlockExpandedEvent extends ilarkesto.core.event.AEvent {
         return object;
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof BlockExpandedHandler) {
             log.debug("    " + handler.getClass().getName() + ".onBlockExpanded(event)");

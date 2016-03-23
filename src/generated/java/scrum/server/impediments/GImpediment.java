@@ -28,10 +28,12 @@ public abstract class GImpediment
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.impediments.ImpedimentDao getDao() {
         return impedimentDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -47,6 +49,7 @@ public abstract class GImpediment
         properties.put("closed", this.closed);
     }
 
+    @Override
     public int compareTo(Impediment other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -64,6 +67,7 @@ public abstract class GImpediment
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getLabel(), key)) return true;
@@ -328,6 +332,7 @@ public abstract class GImpediment
         setClosed((Boolean)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -343,6 +348,7 @@ public abstract class GImpediment
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -350,6 +356,7 @@ public abstract class GImpediment
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

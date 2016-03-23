@@ -28,10 +28,12 @@ public abstract class GUser
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.admin.UserDao getDao() {
         return userDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -68,6 +70,7 @@ public abstract class GUser
         properties.put("openId", this.openId);
     }
 
+    @Override
     public int compareTo(User other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -125,6 +128,7 @@ public abstract class GUser
     // - Searchable
     // -----------------------------------------------------------
 
+    @Override
     public boolean matchesKey(String key) {
         if (super.matchesKey(key)) return true;
         if (matchesKey(getName(), key)) return true;
@@ -140,6 +144,7 @@ public abstract class GUser
 
     private java.lang.String name;
 
+    @Override
     public final java.lang.String getName() {
         return name;
     }
@@ -249,6 +254,7 @@ public abstract class GUser
 
     private boolean admin;
 
+    @Override
     public final boolean isAdmin() {
         return admin;
     }
@@ -1054,6 +1060,7 @@ public abstract class GUser
         setOpenId((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -1090,6 +1097,7 @@ public abstract class GUser
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadCurrentProjectReference(entityId);
@@ -1097,6 +1105,7 @@ public abstract class GUser
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         try {

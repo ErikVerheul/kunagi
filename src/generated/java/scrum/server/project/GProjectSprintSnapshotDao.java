@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GProjectSprintSnapshotDao
             extends ilarkesto.persistence.ADao<ProjectSprintSnapshot> {
 
+    @Override
     public final String getEntityName() {
         return ProjectSprintSnapshot.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return ProjectSprintSnapshot.class;
     }
 
     public Set<ProjectSprintSnapshot> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<ProjectSprintSnapshot>() {
+            @Override
             public boolean test(ProjectSprintSnapshot e) {
                 return Auth.isVisible(e, user);
             }
@@ -91,6 +94,7 @@ public abstract class GProjectSprintSnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectSprintSnapshot e) {
             return e.isSprint(value);
         }
@@ -103,6 +107,7 @@ public abstract class GProjectSprintSnapshotDao
 
     private final Cache<Integer,Set<ProjectSprintSnapshot>> projectSprintSnapshotsByRemainingWorkCache = new Cache<Integer,Set<ProjectSprintSnapshot>>(
             new Cache.Factory<Integer,Set<ProjectSprintSnapshot>>() {
+                @Override
                 public Set<ProjectSprintSnapshot> create(Integer remainingWork) {
                     return getEntities(new IsRemainingWork(remainingWork));
                 }
@@ -131,6 +136,7 @@ public abstract class GProjectSprintSnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectSprintSnapshot e) {
             return e.isRemainingWork(value);
         }
@@ -143,6 +149,7 @@ public abstract class GProjectSprintSnapshotDao
 
     private final Cache<Integer,Set<ProjectSprintSnapshot>> projectSprintSnapshotsByBurnedWorkCache = new Cache<Integer,Set<ProjectSprintSnapshot>>(
             new Cache.Factory<Integer,Set<ProjectSprintSnapshot>>() {
+                @Override
                 public Set<ProjectSprintSnapshot> create(Integer burnedWork) {
                     return getEntities(new IsBurnedWork(burnedWork));
                 }
@@ -171,6 +178,7 @@ public abstract class GProjectSprintSnapshotDao
             this.value = value;
         }
 
+        @Override
         public boolean test(ProjectSprintSnapshot e) {
             return e.isBurnedWork(value);
         }

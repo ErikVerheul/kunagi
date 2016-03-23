@@ -28,10 +28,12 @@ public abstract class GProjectUserConfig
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.admin.ProjectUserConfigDao getDao() {
         return projectUserConfigDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -57,6 +59,7 @@ public abstract class GProjectUserConfig
         properties.put("pblFilterText", this.pblFilterText);
     }
 
+    @Override
     public int compareTo(ProjectUserConfig other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -851,6 +854,7 @@ public abstract class GProjectUserConfig
         setPblFilterText((java.lang.String)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -876,6 +880,7 @@ public abstract class GProjectUserConfig
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadProjectReference(entityId);
@@ -888,6 +893,7 @@ public abstract class GProjectUserConfig
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isProjectSet()) {

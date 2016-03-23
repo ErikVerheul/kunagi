@@ -23,16 +23,19 @@ import ilarkesto.fp.Predicate;
 public abstract class GRequirementDao
             extends ilarkesto.persistence.ADao<Requirement> {
 
+    @Override
     public final String getEntityName() {
         return Requirement.TYPE;
     }
 
+    @Override
     public final Class getEntityClass() {
         return Requirement.class;
     }
 
     public Set<Requirement> getEntitiesVisibleForUser(final scrum.server.admin.User user) {
         return getEntities(new Predicate<Requirement>() {
+            @Override
             public boolean test(Requirement e) {
                 return Auth.isVisible(e, user);
             }
@@ -95,6 +98,7 @@ public abstract class GRequirementDao
 
     private final Cache<scrum.server.project.Project,Set<Requirement>> requirementsByProjectCache = new Cache<scrum.server.project.Project,Set<Requirement>>(
             new Cache.Factory<scrum.server.project.Project,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(scrum.server.project.Project project) {
                     return getEntities(new IsProject(project));
                 }
@@ -123,6 +127,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isProject(value);
         }
@@ -135,6 +140,7 @@ public abstract class GRequirementDao
 
     private final Cache<scrum.server.sprint.Sprint,Set<Requirement>> requirementsBySprintCache = new Cache<scrum.server.sprint.Sprint,Set<Requirement>>(
             new Cache.Factory<scrum.server.sprint.Sprint,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(scrum.server.sprint.Sprint sprint) {
                     return getEntities(new IsSprint(sprint));
                 }
@@ -163,6 +169,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isSprint(value);
         }
@@ -175,6 +182,7 @@ public abstract class GRequirementDao
 
     private final Cache<scrum.server.issues.Issue,Set<Requirement>> requirementsByIssueCache = new Cache<scrum.server.issues.Issue,Set<Requirement>>(
             new Cache.Factory<scrum.server.issues.Issue,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(scrum.server.issues.Issue issue) {
                     return getEntities(new IsIssue(issue));
                 }
@@ -203,6 +211,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isIssue(value);
         }
@@ -215,6 +224,7 @@ public abstract class GRequirementDao
 
     private final Cache<Integer,Set<Requirement>> requirementsByNumberCache = new Cache<Integer,Set<Requirement>>(
             new Cache.Factory<Integer,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(Integer number) {
                     return getEntities(new IsNumber(number));
                 }
@@ -243,6 +253,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isNumber(value);
         }
@@ -255,6 +266,7 @@ public abstract class GRequirementDao
 
     private final Cache<scrum.server.project.Quality,Set<Requirement>> requirementsByQualityCache = new Cache<scrum.server.project.Quality,Set<Requirement>>(
             new Cache.Factory<scrum.server.project.Quality,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(scrum.server.project.Quality quality) {
                     return getEntities(new ContainsQuality(quality));
                 }
@@ -283,6 +295,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.containsQuality(value);
         }
@@ -295,6 +308,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.String,Set<Requirement>> requirementsByLabelCache = new Cache<java.lang.String,Set<Requirement>>(
             new Cache.Factory<java.lang.String,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.String label) {
                     return getEntities(new IsLabel(label));
                 }
@@ -323,6 +337,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isLabel(value);
         }
@@ -335,6 +350,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.String,Set<Requirement>> requirementsByDescriptionCache = new Cache<java.lang.String,Set<Requirement>>(
             new Cache.Factory<java.lang.String,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.String description) {
                     return getEntities(new IsDescription(description));
                 }
@@ -363,6 +379,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isDescription(value);
         }
@@ -375,6 +392,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.String,Set<Requirement>> requirementsByTestDescriptionCache = new Cache<java.lang.String,Set<Requirement>>(
             new Cache.Factory<java.lang.String,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.String testDescription) {
                     return getEntities(new IsTestDescription(testDescription));
                 }
@@ -403,6 +421,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isTestDescription(value);
         }
@@ -415,6 +434,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.Float,Set<Requirement>> requirementsByEstimatedWorkCache = new Cache<java.lang.Float,Set<Requirement>>(
             new Cache.Factory<java.lang.Float,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.Float estimatedWork) {
                     return getEntities(new IsEstimatedWork(estimatedWork));
                 }
@@ -443,6 +463,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isEstimatedWork(value);
         }
@@ -455,6 +476,7 @@ public abstract class GRequirementDao
 
     private final Cache<ilarkesto.core.time.Date,Set<Requirement>> requirementsByRejectDateCache = new Cache<ilarkesto.core.time.Date,Set<Requirement>>(
             new Cache.Factory<ilarkesto.core.time.Date,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(ilarkesto.core.time.Date rejectDate) {
                     return getEntities(new IsRejectDate(rejectDate));
                 }
@@ -483,6 +505,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isRejectDate(value);
         }
@@ -495,6 +518,7 @@ public abstract class GRequirementDao
 
     private final Cache<Boolean,Set<Requirement>> requirementsByClosedCache = new Cache<Boolean,Set<Requirement>>(
             new Cache.Factory<Boolean,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(Boolean closed) {
                     return getEntities(new IsClosed(closed));
                 }
@@ -512,6 +536,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return value == e.isClosed();
         }
@@ -524,6 +549,7 @@ public abstract class GRequirementDao
 
     private final Cache<Boolean,Set<Requirement>> requirementsByDirtyCache = new Cache<Boolean,Set<Requirement>>(
             new Cache.Factory<Boolean,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(Boolean dirty) {
                     return getEntities(new IsDirty(dirty));
                 }
@@ -541,6 +567,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return value == e.isDirty();
         }
@@ -553,6 +580,7 @@ public abstract class GRequirementDao
 
     private final Cache<Boolean,Set<Requirement>> requirementsByWorkEstimationVotingActiveCache = new Cache<Boolean,Set<Requirement>>(
             new Cache.Factory<Boolean,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(Boolean workEstimationVotingActive) {
                     return getEntities(new IsWorkEstimationVotingActive(workEstimationVotingActive));
                 }
@@ -570,6 +598,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return value == e.isWorkEstimationVotingActive();
         }
@@ -582,6 +611,7 @@ public abstract class GRequirementDao
 
     private final Cache<Boolean,Set<Requirement>> requirementsByWorkEstimationVotingShowoffCache = new Cache<Boolean,Set<Requirement>>(
             new Cache.Factory<Boolean,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(Boolean workEstimationVotingShowoff) {
                     return getEntities(new IsWorkEstimationVotingShowoff(workEstimationVotingShowoff));
                 }
@@ -599,6 +629,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return value == e.isWorkEstimationVotingShowoff();
         }
@@ -611,6 +642,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.String,Set<Requirement>> requirementsByTasksOrderIdCache = new Cache<java.lang.String,Set<Requirement>>(
             new Cache.Factory<java.lang.String,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.String tasksOrderId) {
                     return getEntities(new ContainsTasksOrderId(tasksOrderId));
                 }
@@ -639,6 +671,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.containsTasksOrderId(value);
         }
@@ -651,6 +684,7 @@ public abstract class GRequirementDao
 
     private final Cache<java.lang.String,Set<Requirement>> requirementsByThemeCache = new Cache<java.lang.String,Set<Requirement>>(
             new Cache.Factory<java.lang.String,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(java.lang.String theme) {
                     return getEntities(new ContainsTheme(theme));
                 }
@@ -679,6 +713,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.containsTheme(value);
         }
@@ -691,6 +726,7 @@ public abstract class GRequirementDao
 
     private final Cache<scrum.server.project.Requirement,Set<Requirement>> requirementsByEpicCache = new Cache<scrum.server.project.Requirement,Set<Requirement>>(
             new Cache.Factory<scrum.server.project.Requirement,Set<Requirement>>() {
+                @Override
                 public Set<Requirement> create(scrum.server.project.Requirement epic) {
                     return getEntities(new IsEpic(epic));
                 }
@@ -719,6 +755,7 @@ public abstract class GRequirementDao
             this.value = value;
         }
 
+        @Override
         public boolean test(Requirement e) {
             return e.isEpic(value);
         }

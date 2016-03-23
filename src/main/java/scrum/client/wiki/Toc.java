@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Toc extends AWikiElement {
 
-	private WikiModel model;
+	private final WikiModel model;
 
 	public Toc(WikiModel model) {
 		super();

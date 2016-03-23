@@ -28,10 +28,12 @@ public abstract class GSprintReport
 
     // --- AEntity ---
 
+    @Override
     public final scrum.server.sprint.SprintReportDao getDao() {
         return sprintReportDao;
     }
 
+    @Override
     protected void repairDeadDatob(ADatob datob) {
     }
 
@@ -47,6 +49,7 @@ public abstract class GSprintReport
         properties.put("burnedWork", this.burnedWork);
     }
 
+    @Override
     public int compareTo(SprintReport other) {
         return toString().toLowerCase().compareTo(other.toString().toLowerCase());
     }
@@ -590,6 +593,7 @@ public abstract class GSprintReport
         setBurnedWork((Integer)value);
     }
 
+    @Override
     public void updateProperties(Map<?, ?> properties) {
         for (Map.Entry entry : properties.entrySet()) {
             String property = (String) entry.getKey();
@@ -605,6 +609,7 @@ public abstract class GSprintReport
         }
     }
 
+    @Override
     protected void repairDeadReferences(String entityId) {
         super.repairDeadReferences(entityId);
         repairDeadSprintReference(entityId);
@@ -621,6 +626,7 @@ public abstract class GSprintReport
 
     // --- ensure integrity ---
 
+    @Override
     public void ensureIntegrity() {
         super.ensureIntegrity();
         if (!isSprintSet()) {

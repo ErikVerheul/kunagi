@@ -14,6 +14,7 @@ public class ServerDataReceivedEvent extends ilarkesto.core.event.AEvent impleme
         return data;
     }
 
+    @Override
     public void tryToGetHandled(Object handler) {
         if (handler instanceof ServerDataReceivedHandler) {
             ((ServerDataReceivedHandler)handler).onServerDataReceived(this);
