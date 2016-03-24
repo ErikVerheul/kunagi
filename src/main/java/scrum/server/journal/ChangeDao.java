@@ -51,7 +51,7 @@ public class ChangeDao extends GChangeDao {
 		return change;
 	}
 
-	private Cache<String, Set<Change>> changesByParentIdCache = new AFactoryCache<String, Set<Change>>() {
+	private final Cache<String, Set<Change>> changesByParentIdCache = new AFactoryCache<String, Set<Change>>() {
 
 		@Override
 		public Set<Change> create(final String parentId) {

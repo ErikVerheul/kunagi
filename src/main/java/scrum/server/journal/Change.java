@@ -26,7 +26,7 @@ import scrum.server.project.Requirement;
 
 public class Change extends GChange implements Comparable<Change> {
 
-    private static Log log = Log.get(Change.class);
+    private static final Log log = Log.get(Change.class);
 
     @Override
     public boolean isVisibleFor(User user) {
@@ -66,10 +66,7 @@ public class Change extends GChange implements Comparable<Change> {
         if (!isKey(other.getKey())) {
             return false;
         }
-        if (getDateAndTime().getPeriodTo(other.getDateAndTime()).abs().toMinutes() > 60) {
-            return false;
-        }
-        return true;
+        return getDateAndTime().getPeriodTo(other.getDateAndTime()).abs().toMinutes() <= 60;
     }
 
     @Override
